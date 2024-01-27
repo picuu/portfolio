@@ -1,5 +1,6 @@
 ---
 import Header from '../components/Header.astro';
+import '@fontsource-variable/onest';
 
 interface Props {
     title: string;
@@ -35,7 +36,7 @@ const { title, description } = Astro.props;
 		--clr-background: oklch(13% 0.0126 255);
 		--clr-nav: rgba(44, 44, 48, .75);
 
-		--ff-base: system-ui, sans-serif;
+		--ff-base: 'Onest Variable', system-ui, sans-serif;
 		--ff-mono: serif;
 
 		--fs-200: clamp(0.9444rem, 0.9285rem + 0.0795vw, 1rem);
