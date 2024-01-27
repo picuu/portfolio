@@ -1,0 +1,31 @@
+---
+const { href } = Astro.props
+---
+
+
+<a href={href} target="_blank" rel="noopener noreferrer">
+    <slot name="before" />
+    <slot />
+    <slot name="after" />
+</a>
+
+<style>
+    a {
+        display: flex;
+        align-items: center;
+        gap: .5rem;
+        width: max-content;
+        padding: .5rem 1rem;
+        background-color: var(--clr-nav);
+        border-radius: 100vw;
+        border: 1px solid var(--clr-border);
+        font-size: var(--fs-200);
+        cursor: pointer;
+        transition: transform .2s ease-in-out, filter .2s ease-in-out;
+    }
+
+    a:hover {
+        transform: scale(1.1);
+        filter: brightness(1.15);
+    }
+</style>
