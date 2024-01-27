@@ -1,0 +1,29 @@
+---
+import Layout from "../layouts/Layout.astro"
+import Section from "../components/Section.astro"
+import Formation from "../components/Formation.astro"
+import SchoolIcon from "../components/icons/School.astro"
+import SectionTitle from "../components/SectionTitle.astro"
+---
+
+<Layout
+    title="Sobre mi | Carlos Capó - Desarrollador y Programador Web"
+    description="Información sobre Carlos Capó, Desarrollador Web formándose en el Instituto Tecnológico de Barcelona en un ciclo formativo. Conoce su formación e inicios en el mundo de la programación."
+>
+    <main>
+        <Section class="formation">
+            <SectionTitle>
+                <SchoolIcon width="34" height="34" />
+                Formación
+            </SectionTitle>
+            <Formation />
+        </Section>
+    </main>
+</Layout>
+
+<style is:global>
+    section.formation {
+        margin-top: 6rem;
+        padding-bottom: 12rem;
+    }
+</style>
