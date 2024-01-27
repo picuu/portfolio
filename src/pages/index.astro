@@ -1,10 +1,72 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import Layout from "../layouts/Layout.astro"
+import Section from "../components/Section.astro"
+import Button from "../components/Button.astro"
+
+import GitHubIcon from "../components/icons/GitHub.astro"
+import LinkedInIcon from "../components/icons/LinkedIn.astro"
+import MailIcon from "../components/icons/Mail.astro"
 ---
 
 <Layout
     title="👨🏻‍💻 Porfolio de Carlos Capó - Desarrollador y Programador Web"
     description="Conoce a Carlos Capó, Desarrollador Web formandose en el Instituto Tecnológico de Barcelona en un ciclo formativo."
 >
-    <main></main>
+    <main>
+        <Section class="intro">
+            <img class="intro-image" src="/images/profile.webp" alt="Retrato de Carlos Capó">
+            <div class="intro-info">
+                <h1>Carlos Capó</h1>
+                <p class="intro-info-description">Desarrollador web de 18 años en Barcelona, autodidacta y motivado, enfocado en crear soluciones innovadoras con una actitud activa y responsable.</p>
+                <div class="intro-socials">
+                    <Button>
+                        <GitHubIcon slot="before" width="24" height="24" />
+                        GitHub
+                    </Button>
+
+                    <Button>
+                        <LinkedInIcon slot="before" width="24" height="24" />
+                        LinkedIn
+                    </Button>
+
+                    <Button>
+                        <MailIcon slot="before" width="24" height="24" />
+                        contact@picu.es
+                    </Button>
+                </div>
+            </div>
+        </Section>
+    </main>
 </Layout>
+
+<style is:global>
+    section.intro {
+        display: flex;
+        align-items: flex-start;
+        gap: 3rem;
+        margin-top: 10rem;
+        padding-bottom: 200rem;
+    }
+
+    .intro-image {
+        width: 200px;
+        border-radius: 50%;
+    }
+
+    .intro-info {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .intro-info-description {
+        max-width: 40ch;
+        text-wrap: balance;
+    }
+
+    .intro-socials {
+        display: flex;
+        gap: 1.25rem;
+        margin-top: 1rem;
+    }
+</style>
