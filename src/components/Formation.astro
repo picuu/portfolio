@@ -1,5 +1,5 @@
 ---
-import FormationItem from "./FormationItem.astro"
+import TimelineItem from "./TimelineItem.astro"
 
 const FORMATION = [
     {
@@ -23,7 +23,7 @@ const FORMATION = [
 
     {
         FORMATION.map(formation => (
-            <FormationItem {...formation} />
+            <TimelineItem {...formation} />
         ))
     }
 </ol>
