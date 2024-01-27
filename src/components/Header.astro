@@ -1,0 +1,43 @@
+---
+
+---
+
+<header>
+    <nav>
+        <a href="#experiencia">Experiencia</a>
+        <a href="#proyectos">Proyectos</a>
+        <a href="#sobre-mi">Sobre mi</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
+
+</header>
+
+<style>
+    header {
+        display: flex;
+        justify-content: center;
+    }
+
+    nav {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin-top: 1rem;
+        padding: .5rem 2rem;
+        border-radius: 100vw;
+        background-color: var(--clr-nav);
+        backdrop-filter: blur(8px);
+        filter: drop-shadow(0 .25rem 4rem hsla(235, 80%, 72%, .25));
+    }
+
+    nav a {
+        padding: .5rem;
+        font-size: var(--fs-300);
+        opacity: .75;
+        transition: opacity 200ms ease-in-out;
+    }
+
+    nav a:hover {
+        opacity: 1;
+    }
+</style>
