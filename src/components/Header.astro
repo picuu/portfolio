@@ -4,10 +4,11 @@
 
 <header>
     <nav>
-        <a href="#experiencia">Experiencia</a>
-        <a href="#proyectos">Proyectos</a>
+        <a href="/">Inicio</a>
+        <a href="/#experiencia">Experiencia</a>
+        <a href="/#proyectos">Proyectos</a>
         <a href="/about">Sobre mi</a>
-        <a href="#contacto">Contacto</a>
+        <a href="/#contacto">Contacto</a>
     </nav>
 
 </header>
@@ -16,6 +17,10 @@
     header {
         display: flex;
         justify-content: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
     }
 
     nav {
@@ -34,7 +39,7 @@
         padding: .5rem;
         font-size: var(--fs-300);
         opacity: .75;
-        transition: opacity 200ms ease-in-out;
+        transition: opacity 300ms ease-in-out;
     }
 
     nav a:hover {
