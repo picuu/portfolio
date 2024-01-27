@@ -7,6 +7,7 @@ import Formation from "../components/Formation.astro"
 import GitHubIcon from "../components/icons/GitHub.astro"
 import LinkedInIcon from "../components/icons/LinkedIn.astro"
 import MailIcon from "../components/icons/Mail.astro"
+import SchoolIcon from "../components/icons/School.astro"
 ---
 
 <Layout
@@ -39,6 +40,10 @@ import MailIcon from "../components/icons/Mail.astro"
         </Section>
 
         <Section>
+            <h2 class="section-title">
+                <SchoolIcon slot="before" width="34" height="34" />
+                Formación
+            </h2>
             <Formation />
         </Section>
     </main>
@@ -73,5 +78,12 @@ import MailIcon from "../components/icons/Mail.astro"
         display: flex;
         gap: 1.25rem;
         margin-top: 1rem;
+    }
+
+    .section-title {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 1rem;
     }
 </style>
