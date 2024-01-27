@@ -1,0 +1,80 @@
+---
+import Button from "./Button.astro"
+import ExternalLinkIcon from "./icons/ExternalLink.astro"
+
+interface Props {
+    title: string
+    subtitle: string
+    description: string
+    link: string
+    date: string
+}
+
+const { title, subtitle, description, link, date } = Astro.props
+---
+
+<li>
+    <time class="time">{date}</time>
+    <h3 class="title">{title}</h3>
+    <h4 class="subtitle">{subtitle}</h4>
+    <p class="description">{description}</p>
+    <Button href={link}>
+        <ExternalLinkIcon slot="before" width="24" height="24" />
+        Saber más
+    </Button>
+</li>
+
+<style>
+    li {
+        margin-left: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    li:last-child {
+        margin-bottom: .5rem;
+    }
+    
+    li:not(:first-child) {
+        padding-top: 2.5rem;
+    }
+
+    .time {
+        position: relative;
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+        font-size: var(--fs-200);
+        color: hsl(203, 40%, 65%);
+    }
+
+    .time::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin-block: auto;
+        left: calc(-1.5rem - 3.25px);
+        width: .65rem;
+        height: .65rem;
+        border-radius: 50%;
+        background-color: lightskyblue;
+    }
+
+    .title {
+        margin-bottom: .25rem;
+        font-weight: 600;
+    }
+
+    .subtitle {
+        margin-bottom: 0.75rem;
+        font-weight: 500;
+        color: hsl(270, 70%, 65%);
+    }
+
+    .description {
+        max-width: 65ch;
+        margin-bottom: 1.25rem;
+        font-size: calc(var(--fs-200) + 0.1rem);
+        opacity: .85;
+    }
+</style>
