@@ -1,4 +1,5 @@
 ---
+import Background from '../components/Background.astro';
 import Header from '../components/Header.astro';
 import '@fontsource-variable/onest';
 
@@ -27,6 +28,7 @@ const { title, description } = Astro.props;
     <body>
 		<Header />
         <slot />
+		<Background />
     </body>
 </html>
 
@@ -34,7 +36,8 @@ const { title, description } = Astro.props;
 	:root {
 		--clr-text: oklch(92% 0 0);
 		--clr-background: oklch(13% 0.0126 255);
-		--clr-nav: rgba(44, 44, 48, .75);
+		--clr-nav: rgba(44 44 48 / .75);
+		--clr-border: rgba(100 100 100 / 0.5);
 
 		--ff-base: 'Onest Variable', system-ui, sans-serif;
 		--ff-mono: serif;
@@ -67,6 +70,7 @@ const { title, description } = Astro.props;
 		font-size: var(--fs-300);
 		line-height: 1.5;
 		color: var(--clr-text);
+		overflow-x: clip;
 	}
 
 	img, svg {
@@ -75,7 +79,7 @@ const { title, description } = Astro.props;
 	}
 
 	main {
-		width: min(75ch, 100% - 4rem);
+		width: min(65ch, 100% - 4rem);
 		margin-inline: auto;
 	}
 
@@ -86,7 +90,7 @@ const { title, description } = Astro.props;
 		line-height: 1.2;
 	}
 
-	h1 { font-size: var(--fs-800); }
+	h1 { font-size: calc(var(--fs-800) + .75rem); }
 
 	h2 { font-size: var(--fs-700); }
 
