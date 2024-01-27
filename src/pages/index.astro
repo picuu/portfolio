@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro"
 import Section from "../components/Section.astro"
+import SectionTitle from "../components/SectionTitle.astro"
 import Button from "../components/Button.astro"
 import Formation from "../components/Formation.astro"
 
@@ -40,10 +41,10 @@ import SchoolIcon from "../components/icons/School.astro"
         </Section>
 
         <Section>
-            <h2 class="section-title">
-                <SchoolIcon slot="before" width="34" height="34" />
+            <SectionTitle>
+                <SchoolIcon width="34" height="34" />
                 Formación
-            </h2>
+            </SectionTitle>
             <Formation />
         </Section>
     </main>
@@ -78,12 +79,5 @@ import SchoolIcon from "../components/icons/School.astro"
         display: flex;
         gap: 1.25rem;
         margin-top: 1rem;
-    }
-
-    .section-title {
-        display: flex;
-        align-items: center;
-        gap: 0.75rem;
-        margin-bottom: 1rem;
     }
 </style>
