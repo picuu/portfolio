@@ -1,0 +1,43 @@
+---
+import TimelineItem from "./TimelineItem.astro"
+
+const EXPERIENCE = [
+    {
+        date: "Marzo 2023 - Junio 2023",
+        title: "Técnico Informático",
+        subtitle: "Hospital Juaneda Menorca",
+        description: "Formé parte del equipo de soporte informático del Hospital Juaneda Menorca, dando soporte a los usuarios y gestionando el mantenimiento de los equipos informáticos. Además participé en el proceso migratorio del Hospital, que se mudó a un nuevo edificio.",
+        link: "https://www.juaneda.es"
+    }
+]
+---
+
+<ol>
+
+    {
+        EXPERIENCE.map(experience => (
+            <TimelineItem {...experience} />
+        ))
+    }
+</ol>
+
+<style>
+    ol {
+        position: relative;
+        padding-block: .25rem;
+        margin-left: .96rem;
+        list-style: none;
+    }
+
+    ol::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 3px;
+        height: 100%;
+        background-color: var(--clr-border);
+        border-radius: 100vw;
+    }
+</style>
+
