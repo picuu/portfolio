@@ -1,47 +1,8 @@
 ---
 import Button from "./Button.astro"
 
-import GitHubIcon from "../icons/GitHub.astro"
-import WorldIcon from "../icons/World.astro"
-import NextIcon from "../icons/NextJS.astro"
-import TailwindIcon from "../icons/Tailwind.astro"
-import ReactIcon from "../icons/React.astro"
-import HTMLIcon from "../icons/HTML.astro"
-import CSSIcon from "../icons/CSS.astro"
-import JavaScriptIcon from "../icons/JavaScript.astro"
-
-const TAGS = {
-    HTML: {
-        name: "HTML",
-        styles: "background-color: #e34c26; color: white;",
-        icon: HTMLIcon
-    },
-    CSS: {
-        name: "CSS",
-        styles: "background-color: #264de4; color: white;",
-        icon: CSSIcon
-    },
-    JAVASCRIPT: {
-        name: "JavaScript",
-        styles: "background-color: #f7df1e; color: black;",
-        icon: JavaScriptIcon
-    },
-    NEXT: {
-        name: "Next.js",
-        styles: "background-color: #000; color: white;",
-        icon: NextIcon
-    },
-    TAILWIND: {
-        name: "Tailwind CSS",
-        styles: "background-color: #003159; color: white;",
-        icon: TailwindIcon
-    },
-    REACT: {
-        name: "React",
-        styles: "background-color: #004f65; color: white;",
-        icon: ReactIcon
-    }
-}
+import BookIcon from "../icons/Book.astro"
+import RocketIcon from "../icons/Rocket.astro"
 
 const PROJECTS = [
     {
@@ -49,40 +10,41 @@ const PROJECTS = [
         description: "App web para gestionar el horario de limpieza de un piso compartido. Creado desde cero con HTML, CSS y JavaScript. Inspirado en la interfaz y temáticas de shadcn/ui.",
         link: "https://cleaning-schedule.vercel.app",
         github: "https://github.com/picuu/cleaning-schedule",
-        // image: "/projects/cleaning-schedule.webp",
         image: "/projects/cleaning-schedule.webp",
-        tags: [TAGS.HTML, TAGS.CSS, TAGS.JAVASCRIPT]
+        tags: ["HTML", "CSS", "JavaScript"]
     }
 ]
 ---
-<div class="projects-container">
+<div class="repositories-container">
     {
         PROJECTS.map(({ title, description, link, github, image, tags}) => (
-            <article class="project">
-                <h3 class="title">{title}</h3>
+            <article class="repository">
+                {
+                    image && <img src={image} alt={`Captura de pantalla del proyecto ${title}`} />
+                }
+
+                <h3 class="title">
+                    <BookIcon width="18" height="18" />
+                    <a href={github} target="_blank" rel="noopener">
+                        {title.toLowerCase().replace(/\s/g, "-")}
+                    </a>
+                </h3>
                 <p class="description">{description}</p>
                 <ul class="tag-list">
                     {tags.map(tag => (
                         <li>
-                            <span class="tag" style={tag.styles}>
-                                <tag.icon width="16" height="16" />
-                                {tag.name}
+                            <span class="tag" data-tag-name={tag}>
+                                {tag}
                             </span>
                         </li>
                         ))
                     }
-                </ul>
-
-                <img src={image} alt={`Captura de pantalla del proyecto ${title}`} />
+                </ul>                
 
                 <div class="buttons">
                     <Button href={link}>
-                        <WorldIcon width="24" height="24" />
-                        Web
-                    </Button>
-                    <Button href={github}>
-                        <GitHubIcon width="24" height="24" />
-                        Repositorio 
+                        <RocketIcon width="20" height="20" fill="#bbb" />
+                        <span>Web</span>
                     </Button>
                 </div>
             </article>
@@ -91,25 +53,49 @@ const PROJECTS = [
 </div>
 
 <style>
-    .projects-container {
+    .repositories-container {
         display: flex;
         flex-direction: column;
         gap: 3.5rem;
     }
 
+    .repository {
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+        border-radius: .5rem;
+        background: #15171e;
+        border: 1px solid #1e2129;
+        padding: 1rem 1rem 1.5rem 1rem;
+    }
+
     .title {
+        display: flex;
+        align-items: center;
+        gap: .35rem;
         margin-bottom: .5rem;
-        color: hsl(55, 80%, 70%);
+        font-weight: 600;
+    }
+
+    .title a {
+        text-decoration: underline;
+        text-decoration-color: transparent;
+        transition: text-decoration-color 100ms ease-in-out;
+    }
+
+    .title a:hover {
+        text-decoration-color: currentColor;
     }
 
     .description {
         margin-bottom: 1rem;
+        font-size: var(--fs-200);
+        opacity: .8;
     }
 
     .tag-list {
         display: flex;
-        gap: .5rem;
-        margin-bottom: .75rem;
+        gap: 1.3rem;
         list-style: none;
     }
 
@@ -117,9 +103,39 @@ const PROJECTS = [
         display: flex;
         align-items: center;
         gap: .5rem;
-        border-radius: 100vw;
-        padding: .25rem .5rem;
         font-size: calc(var(--fs-200) - .1em)
+    }
+
+    .tag::before {
+        content: "";
+        width: 9px;
+        height: 9px;
+        border-radius: 100vw;
+        background-color: #eee;
+    }
+
+    .tag[data-tag-name="HTML"]::before {
+        background-color: #ee8059;
+    }
+
+    .tag[data-tag-name="CSS"]::before {
+        background-color: #598aee;
+    }
+
+    .tag[data-tag-name="JavaScript"]::before {
+        background-color: #eee459;
+    }
+
+    .tag[data-tag-name="Next.js"]::before {
+        background-color: #ddd;
+    }
+
+    .tag[data-tag-name="Tailwind CSS"]::before {
+        background-color: #0bacc9;
+    }
+
+    .tag[data-tag-name="React"]::before {
+        background-color: #56d1f3;
     }
 
     img {
@@ -129,6 +145,11 @@ const PROJECTS = [
 
     .buttons {
         display: flex;
+        justify-content: flex-end;
         gap: 1rem;
+    }
+
+    .buttons span {
+        color: #bbb;
     }
 </style>
