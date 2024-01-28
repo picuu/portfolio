@@ -1,0 +1,134 @@
+---
+import Button from "./Button.astro"
+
+import GitHubIcon from "./icons/GitHub.astro"
+import WorldIcon from "./icons/World.astro"
+import NextIcon from "./icons/NextJS.astro"
+import TailwindIcon from "./icons/Tailwind.astro"
+import ReactIcon from "./icons/React.astro"
+import HTMLIcon from "./icons/HTML.astro"
+import CSSIcon from "./icons/CSS.astro"
+import JavaScriptIcon from "./icons/JavaScript.astro"
+
+const TAGS = {
+    HTML: {
+        name: "HTML",
+        styles: "background-color: #e34c26; color: white;",
+        icon: HTMLIcon
+    },
+    CSS: {
+        name: "CSS",
+        styles: "background-color: #264de4; color: white;",
+        icon: CSSIcon
+    },
+    JAVASCRIPT: {
+        name: "JavaScript",
+        styles: "background-color: #f7df1e; color: black;",
+        icon: JavaScriptIcon
+    },
+    NEXT: {
+        name: "Next.js",
+        styles: "background-color: #000; color: white;",
+        icon: NextIcon
+    },
+    TAILWIND: {
+        name: "Tailwind CSS",
+        styles: "background-color: #003159; color: white;",
+        icon: TailwindIcon
+    },
+    REACT: {
+        name: "React",
+        styles: "background-color: #004f65; color: white;",
+        icon: ReactIcon
+    }
+}
+
+const PROJECTS = [
+    {
+        title: "Cleaning Schedule",
+        description: "App web para gestionar el horario de limpieza de un piso compartido. Creado desde cero con HTML, CSS y JavaScript. Inspirado en la interfaz y temáticas de shadcn/ui.",
+        link: "https://cleaning-schedule.vercel.app",
+        github: "https://github.com/picuu/cleaning-schedule",
+        // image: "/projects/cleaning-schedule.webp",
+        image: "https://porfolio-astro.netlify.app/projects/cleaning-schedule.webp",
+        tags: [TAGS.HTML, TAGS.CSS, TAGS.JAVASCRIPT]
+    }
+]
+---
+<div class="projects-container">
+    {
+        PROJECTS.map(({ title, description, link, github, image, tags}) => (
+            <article class="project">
+                <h3 class="title">{title}</h3>
+                <p class="description">{description}</p>
+                <ul class="tag-list">
+                    {tags.map(tag => (
+                        <li>
+                            <span class="tag" style={tag.styles}>
+                                <tag.icon width="16" height="16" />
+                                {tag.name}
+                            </span>
+                        </li>
+                        ))
+                    }
+                </ul>
+
+                <img src={image} alt={`Captura de pantalla del proyecto ${title}`} />
+
+                <div class="buttons">
+                    <Button href={link}>
+                        <WorldIcon width="24" height="24" />
+                        Web
+                    </Button>
+                    <Button href={github}>
+                        <GitHubIcon width="24" height="24" />
+                        Repositorio 
+                    </Button>
+                </div>
+            </article>
+        ))
+    }
+</div>
+
+<style>
+    .projects-container {
+        display: flex;
+        flex-direction: column;
+        gap: 3.5rem;
+    }
+
+    .title {
+        margin-bottom: .5rem;
+        color: hsl(55, 80%, 70%);
+    }
+
+    .description {
+        margin-bottom: 1rem;
+    }
+
+    .tag-list {
+        display: flex;
+        gap: .5rem;
+        margin-bottom: .75rem;
+        list-style: none;
+    }
+
+    .tag {
+        display: flex;
+        align-items: center;
+        gap: .5rem;
+        border-radius: 100vw;
+        padding: .25rem .5rem;
+        font-size: calc(var(--fs-200) - .1em)
+    }
+
+    img {
+        margin-bottom: .75rem;
+        border-radius: .25rem;
+    }
+
+    .buttons {
+        display: flex;
+        gap: 1rem;
+    }
+</style>
