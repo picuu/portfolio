@@ -27,23 +27,26 @@
     nav {
         display: flex;
         justify-content: center;
-        gap: 2rem;
+        gap: 1rem;
         margin-top: 1rem;
-        padding: .5rem 2rem;
+        padding: .45rem .75rem;
+        border: 1px solid var(--clr-border);
         border-radius: 100vw;
         background-color: var(--clr-nav);
         backdrop-filter: blur(8px);
-        filter: drop-shadow(0 .25rem 4rem hsla(235, 80%, 72%, .25));
+        filter: drop-shadow(0 0 4rem hsla(235, 80%, 72%, .25));
     }
 
     nav a {
-        padding: .5rem;
+        padding: .35rem .9rem;
+        border-radius: 100vw;
         font-size: var(--fs-300);
         opacity: .75;
-        transition: opacity 300ms ease-in-out;
+        transition: opacity 250ms ease-in-out, background-color 250ms ease-in-out;
     }
 
     nav a:hover {
         opacity: 1;
+        background-color: var(--clr-border);
     }
 </style>
