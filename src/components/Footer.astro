@@ -1,0 +1,51 @@
+<footer>
+    <div>
+        <small>© 2024 <a href="/">picu</a>. Casi todos los derechos reservados.</small>
+    
+        <ul>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="https://linkedin.com/in/carloscapo" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+            <li><a href="https://github.com/picuu/portfolio" target="_blank" rel="noopener noreferrer">Repositorio</a></li>
+        </ul>
+    </div>
+</footer>
+
+<style>
+    footer {
+        padding: 2rem 0 3rem 0;
+    }
+
+    footer > div {
+        display: flex;
+        justify-content: space-between;
+        width: min(65ch, 100% - 4rem);
+		margin-inline: auto;
+        padding: 1rem 2rem;
+        border-radius: 100vw;
+        border: 1px solid rgba(100 100 100 / 0.35);
+        background-color: hsl(214, 41%, 3%);
+    }
+
+    small {
+        color: #fef08ae6;
+        font-size: calc(var(--fs-200) - .1rem);
+    }
+
+    a {
+        color: #fef08ae6;
+        text-decoration: underline;
+        text-decoration-color: transparent;
+        transition: text-decoration-color 100ms ease-in-out;
+    }
+
+    a:hover {
+        text-decoration-color: currentColor;
+    }
+
+    ul {
+        display: flex;
+        gap: 1.5rem;
+        list-style: none;
+        font-size: calc(var(--fs-200) - .1rem);
+    }
+</style>
