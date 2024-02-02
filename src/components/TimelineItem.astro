@@ -1,5 +1,5 @@
 ---
-import Button from "./Button.astro"
+import SocialButton from "./SocialButton.astro"
 import ExternalLinkIcon from "../icons/ExternalLink.astro"
 
 interface Props {
@@ -18,10 +18,10 @@ const { title, subtitle, description, link, date } = Astro.props
     <h3 class="title">{title}</h3>
     <h4 class="subtitle">{subtitle}</h4>
     <p class="description">{description}</p>
-    <Button href={link}>
+    <SocialButton href={link}>
         <ExternalLinkIcon slot="before" width="24" height="24" />
         Saber más
-    </Button>
+    </SocialButton>
 </li>
 
 <style>
