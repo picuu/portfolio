@@ -6,6 +6,7 @@ import SocialButton from "../components/SocialButton.astro"
 import Experience from "../components/Experience.astro"
 import Projects from "../components/Projects.astro"
 import About from "../components/About.astro"
+import Contact from "../components/Contact.astro"
 
 import GitHubIcon from "../icons/GitHub.astro"
 import LinkedInIcon from "../icons/LinkedIn.astro"
@@ -13,6 +14,7 @@ import MailIcon from "../icons/Mail.astro"
 import BriefcaseIcon from "../icons/Briefcase.astro"
 import AppsIcon from "../icons/Apps.astro"
 import UserIcon from "../icons/User.astro"
+import SendIcon from "../icons/Send.astro"
 ---
 
 <Layout
@@ -67,6 +69,14 @@ import UserIcon from "../icons/User.astro"
             </SectionTitle>
             <About />
         </Section>
+
+        <Section id="contacto">
+            <SectionTitle>
+                <SendIcon width="34" height="34" />
+                Contacto
+            </SectionTitle>
+            <Contact />
+        </Section>
     </main>
 </Layout>
 
@@ -97,7 +107,26 @@ import UserIcon from "../icons/User.astro"
 
     .intro-socials {
         display: flex;
+        flex-wrap: wrap;
         gap: 1.25rem;
         margin-top: 1rem;
+    }
+
+    @media (width < 640px) {
+        section.intro {
+            flex-direction: column;
+            align-items: center;
+            margin-top: 11rem;
+        }
+
+        .intro-image {
+            width: 225px;
+        }
+    }
+
+    @media (width < 584px) {
+        section.intro {
+            margin-top: 7rem;
+        }
     }
 </style>

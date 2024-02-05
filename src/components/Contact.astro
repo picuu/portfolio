@@ -1,0 +1,56 @@
+---
+import SocialButton from './SocialButton.astro'
+
+import LinkedInIcon from '../icons/LinkedIn.astro'
+import DiscordIcon from '../icons/Discord.astro'
+import GitHubIcon from '../icons/GitHub.astro'
+---
+
+<div class="info">
+    <p>Puedes enviarme un correo a través de <a class="mail" href="mailto:contact@picu.es">contact@picu.es</a>.</p>
+    
+    <p>O encuéntrame aquí:</p>
+</div>
+
+<div class="social-buttons">
+    <SocialButton href="https://github.com/Picuu">
+        <GitHubIcon width="24" height="24" />
+        picuu
+    </SocialButton>
+
+    <SocialButton href="https://www.linkedin.com/in/picu/">
+        <LinkedInIcon width="24" height="24" />
+        carloscapo
+    </SocialButton>
+
+    <SocialButton href="https://picu.es/Discord">
+        <DiscordIcon width="24" height="24" />
+        piicuu
+    </SocialButton>
+</div>
+
+<style>
+    .info {
+        display: flex;
+        flex-direction: column;
+        gap: .25rem;
+        margin-bottom: 1.25rem;
+    }
+
+    .mail {
+        color: rgb(176, 195, 255);
+        text-decoration: underline;
+        text-decoration-color: transparent;
+        transition: text-decoration-color 150ms ease;
+    }
+
+    .mail:hover {
+        text-decoration-color: currentColor;
+    }
+
+    .social-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.25rem;
+    }
+</style>

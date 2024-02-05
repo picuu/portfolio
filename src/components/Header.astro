@@ -1,8 +1,12 @@
 ---
-
+import BriefcaseIcon from "../icons/Briefcase.astro"
+import AppsIcon from "../icons/Apps.astro"
+import UserIcon from "../icons/User.astro"
+import SendIcon from "../icons/Send.astro"
+import AtIcon from "../icons/At.astro"
 ---
 
-<header>
+<header class="header">
     <nav>
         <a href="/#experiencia">Experiencia</a>
         <a href="/#proyectos">Proyectos</a>
@@ -12,8 +16,44 @@
 
 </header>
 
+<header class="mobile-header" id="mobileHeader">
+    <a href="/">
+        <img src="/images/profile.webp" alt="Retrato de Carlos Capó">
+        <div>
+            <h3>Carlos Capó</h3>
+            <p>Desarrollador Web</p>
+        </div>
+    </a>
+    <nav>
+        <a href="/#experiencia">
+            <BriefcaseIcon width="24" height="24" />
+            Experiencia
+        </a>
+        <a href="/#proyectos">
+            <AppsIcon width="24" height="24" />
+            Proyectos
+        </a>
+        <a href="/#sobre-mi">
+            <UserIcon width="24" height="24" />
+            Sobre mi
+        </a>
+        <a href="/#contacto">
+            <SendIcon width="24" height="24" />
+            Contacto
+        </a>
+        <a href="/blog">
+            <AtIcon width="24" height="24" />
+            Blog
+        </a>
+    </nav>
+</header>
+
 <style>
-    header {
+    .mobile-header {
+        display: none;
+    }
+
+    .header {
         display: flex;
         justify-content: center;
         position: fixed;
@@ -23,7 +63,7 @@
         width: 100%;
     }
 
-    nav {
+    .header nav {
         display: flex;
         justify-content: center;
         gap: 1rem;
@@ -36,7 +76,7 @@
         filter: drop-shadow(0 0 4rem hsla(235, 80%, 72%, .25));
     }
 
-    nav a {
+    .header nav a {
         padding: .35rem .9rem;
         border-radius: 100vw;
         font-size: var(--fs-300);
@@ -44,8 +84,103 @@
         transition: opacity 250ms ease-in-out, background-color 250ms ease-in-out;
     }
 
-    nav a:hover {
+    .header nav a:hover {
         opacity: 1;
         background-color: var(--clr-border);
     }
+
+    @media (width < 584px) {
+        .header {
+            display: none;
+        }
+
+        .mobile-header {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            padding: 2.5rem 2rem 1.25rem 2rem;
+            width: 100%;
+            /* height: 8rem; */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-color: #161b22;
+            border-top-left-radius: .75rem;
+            border-top-right-radius: .75rem;
+            z-index: 999;
+            transform: translateY(90%);
+            transition: transform 300ms ease-in-out;
+        }
+
+        .mobile-header::before {
+            --length: 65%;
+
+            content: '';
+            position: absolute;
+            top: 12px;
+            left: 0;
+            width: var(--length);
+            height: 6px;
+            margin-left: calc((100% - var(--length)) / 2);
+            background-color: #80808080;
+            border-radius: 100vw;
+        }
+
+        .mobile-header a {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            border-radius: .5rem;
+        }
+
+        .mobile-header a img {
+            width: 48px;
+            aspect-ratio: 1 / 1;
+            border-radius: 100vw;
+        }
+        
+        .mobile-header a h3 {
+            font-size: var(--fs-300);
+        }
+
+        .mobile-header a p {
+            font-size: var(--fs-300);
+            font-weight: 300;
+        }
+
+        .mobile-header a:hover {
+            background-color: #2d3641;
+        }
+
+        .mobile-header nav {
+            display: flex;
+            flex-direction: column;
+            gap: .5rem;
+            margin-top: 1rem;
+        }
+        
+        .mobile-header nav a {
+            padding: .5rem 1rem;
+            border-radius: .5rem;
+        }
+
+        .show-mobile-header {
+            transform: translateY(0);
+        }
+    }
 </style>
+
+<script>
+    const mobileHeader = document.getElementById('mobileHeader')
+
+    mobileHeader?.addEventListener("click", () => {
+        mobileHeader?.classList.toggle('show-mobile-header')
+    })
+
+    window.addEventListener("click", e => {
+        if (e != null && mobileHeader != null) {
+            if (e.y < mobileHeader.offsetTop) mobileHeader?.classList.remove('show-mobile-header')
+        }
+    })
+</script>
