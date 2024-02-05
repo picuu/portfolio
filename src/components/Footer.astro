@@ -1,10 +1,10 @@
 <footer>
     <div>
-        <small>© 2024 <a href="/">picu</a>. Casi todos los derechos reservados.</small>
+        <small>© 2024 <a href="/">picu</a></small>
     
         <ul>
             <li><a href="/blog">Blog</a></li>
-            <li><a href="https://linkedin.com/in/carloscapo" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+            <li class="mobile-hide"><a href="https://linkedin.com/in/carloscapo" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
             <li><a href="https://github.com/picuu/portfolio" target="_blank" rel="noopener noreferrer">Repositorio</a></li>
         </ul>
     </div>
@@ -47,5 +47,35 @@
         gap: 1.5rem;
         list-style: none;
         font-size: calc(var(--fs-200) - .1rem);
+    }
+
+    @media (width < 460px) {
+        footer {
+            padding: 1rem 0 1rem 0;
+        }
+
+        footer > div {
+            /* flex-direction: column-reverse; */
+            align-items: center;
+            gap: .75rem;
+            width: 100% - 2rem;
+        }
+
+        .mobile-hide {
+            display: none;
+        }
+    }
+
+    @media (width < 584px) {
+        footer {
+            padding-top: 0;
+            padding-bottom: 3rem;
+        }
+    }
+
+    @media (width < 364px) {
+        footer > div {
+            flex-direction: column-reverse;
+        }
     }
 </style>
