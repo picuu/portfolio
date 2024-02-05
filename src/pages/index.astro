@@ -6,6 +6,7 @@ import SocialButton from "../components/SocialButton.astro"
 import Experience from "../components/Experience.astro"
 import Projects from "../components/Projects.astro"
 import About from "../components/About.astro"
+import Contact from "../components/Contact.astro"
 
 import GitHubIcon from "../icons/GitHub.astro"
 import LinkedInIcon from "../icons/LinkedIn.astro"
@@ -13,6 +14,7 @@ import MailIcon from "../icons/Mail.astro"
 import BriefcaseIcon from "../icons/Briefcase.astro"
 import AppsIcon from "../icons/Apps.astro"
 import UserIcon from "../icons/User.astro"
+import SendIcon from "../icons/Send.astro"
 ---
 
 <Layout
@@ -66,6 +68,14 @@ import UserIcon from "../icons/User.astro"
                 Sobre mí
             </SectionTitle>
             <About />
+        </Section>
+
+        <Section id="contacto">
+            <SectionTitle>
+                <SendIcon width="34" height="34" />
+                Contacto
+            </SectionTitle>
+            <Contact />
         </Section>
     </main>
 </Layout>
