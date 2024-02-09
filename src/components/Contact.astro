@@ -1,39 +1,37 @@
 ---
 import SocialButton from './SocialButton.astro'
+import Social from './Social.astro'
 
 import LinkedInIcon from '../icons/LinkedIn.astro'
 import DiscordIcon from '../icons/Discord.astro'
 import GitHubIcon from '../icons/GitHub.astro'
 ---
 
-<div class="info">
-    <p>Puedes enviarme un correo a través de <a class="mail" href="mailto:contact@picu.es">contact@picu.es</a>.</p>
-    
-    <p>O encuéntrame aquí:</p>
-</div>
 
-<div class="social-buttons">
-    <SocialButton href="https://github.com/picuu">
+<p class="info">Puedes enviarme un correo a través de <a class="mail" href="mailto:contact@picu.es">contact@picu.es</a></p>
+
+<div class="socials">
+    <Social href="https://github.com/picuu">
         <GitHubIcon width="24" height="24" />
-        picuu
-    </SocialButton>
+        <span>@picuu</span>
+        <p>Mira mis proyectos de código abierto</p>
+    </Social>
 
-    <SocialButton href="https://www.linkedin.com/in/carloscapo/">
+    <Social href='https://linkedin.com/in/carloscapo'>
         <LinkedInIcon width="24" height="24" />
-        carloscapo
-    </SocialButton>
+        <span>@carloscapo</span>
+        <p>Conecta conmigo en LinkedIn</p>
+    </Social>
 
-    <SocialButton href="https://picu.es/Discord">
+    <Social href="https://picu.es/discord">
         <DiscordIcon width="24" height="24" />
-        piicuu
-    </SocialButton>
+        <span>@piicuu</span>
+        <p>Envíame un mensaje a través de Discord</p>
+    </Social>
 </div>
 
 <style>
     .info {
-        display: flex;
-        flex-direction: column;
-        gap: .25rem;
         margin-bottom: 1.25rem;
     }
 
@@ -48,9 +46,21 @@ import GitHubIcon from '../icons/GitHub.astro'
         text-decoration-color: currentColor;
     }
 
-    .social-buttons {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1.25rem;
+    .socials {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
+        gap: 1rem;
+    }
+
+    .socials span {
+        margin-top: .9rem;
+        margin-bottom: .2rem;
+        font-weight: 700;
+    }
+
+    .socials p {
+        font-size: calc(var(--fs-200) - .06rem);
+        font-weight: 300;
+        opacity: .75;
     }
 </style>
