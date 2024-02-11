@@ -1,5 +1,4 @@
 ---
-import SocialButton from './SocialButton.astro'
 import Social from './Social.astro'
 
 import LinkedInIcon from '../icons/LinkedIn.astro'
@@ -8,7 +7,7 @@ import GitHubIcon from '../icons/GitHub.astro'
 ---
 
 
-<p class="info">Puedes enviarme un correo a través de <a class="mail" href="mailto:contact@picu.es">contact@picu.es</a></p>
+<p class="info">Puedes enviarme un correo a través de <span class="mail" id="mail" tooltip-content="Copiar email">contact@picu.es</span></p>
 
 <div class="socials">
     <Social href="https://github.com/picuu">
@@ -36,14 +35,53 @@ import GitHubIcon from '../icons/GitHub.astro'
     }
 
     .mail {
+        position: relative;
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
         color: rgb(176, 195, 255);
         text-decoration: underline;
         text-decoration-color: transparent;
-        transition: text-decoration-color 150ms ease;
+        transition: text-decoration-color 150ms ease-in-out;
     }
 
     .mail:hover {
         text-decoration-color: currentColor;
+        cursor: pointer;
+    }
+
+    .mail:before {
+        content: attr(tooltip-content);
+        position: absolute;
+        display: none;
+        top: calc(-100% - 1rem);
+        padding: .5rem .75rem;
+        background-color: #111827;
+        border-radius: 0.5rem;
+        font-size: 0.875rem;
+        font-weight: 500; 
+        line-height: 1.25rem;
+        color: #eee; 
+        transition: opacity 200ms ease-in-out;
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    }
+
+    .mail:after {
+        content: "";
+        position: absolute;
+        display: none;
+        bottom: calc(100% + .075rem);
+        width: 24px;
+        height: 12px;
+        border: solid;
+        border-color: #111827 transparent;
+        border-width: 0 12px 12px 12px;
+        transform: rotateZ(180deg);
+        transition: opacity 200ms ease-in-out;
+    }
+    
+    .mail:hover:before, .mail:hover:after, .mail:focus:before, .mail:focus:after {
+        display: block;
     }
 
     .socials {
@@ -64,3 +102,17 @@ import GitHubIcon from '../icons/GitHub.astro'
         opacity: .75;
     }
 </style>
+
+<script>
+    const mail = document.getElementById('mail')
+        
+    mail?.addEventListener('click', () => {
+        navigator.clipboard.writeText('contact@picu.es').then(() => {
+            mail.setAttribute('tooltip-content', '✅ Copiado!')
+            setTimeout(() => {
+                mail.setAttribute('tooltip-content', 'Copiar email')
+            }, 2000)
+        })
+    })
+        
+</script>
