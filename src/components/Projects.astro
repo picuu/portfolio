@@ -28,7 +28,7 @@ const PROJECTS = [
         PROJECTS.map(({ title, description, link, github, image, tags}) => (
             <article class="repository">
                 {
-                    image && <img src={image} alt={`Captura de pantalla del proyecto ${title}`} />
+                    image && <img loading="lazy" src={image} alt={`Captura de pantalla del proyecto ${title}`} />
                 }
 
                 <h3 class="title">
