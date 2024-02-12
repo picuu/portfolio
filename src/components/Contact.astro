@@ -59,11 +59,9 @@ import GitHubIcon from '../icons/GitHub.astro'
         background-color: #111827;
         border-radius: 0.5rem;
         font-size: 0.875rem;
-        font-weight: 500; 
+        font-weight: 500;
         line-height: 1.25rem;
-        color: #eee; 
-        transition: opacity 200ms ease-in-out;
-        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        color: #eee;
     }
 
     .mail:after {
@@ -77,11 +75,35 @@ import GitHubIcon from '../icons/GitHub.astro'
         border-color: #111827 transparent;
         border-width: 0 12px 12px 12px;
         transform: rotateZ(180deg);
-        transition: opacity 200ms ease-in-out;
     }
     
     .mail:hover:before, .mail:hover:after, .mail:focus:before, .mail:focus:after {
         display: block;
+        animation: fade-in 200ms;
+    }
+
+    .mail:not(:hover):before, .mail:not(:hover):after {
+        animation: fade-out 200ms;
+    }
+
+    @keyframes fade-in {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes fade-out {
+        0% {
+            display: block;
+            opacity: 1;
+        }
+        100% {
+            display: none;
+            opacity: 0;
+        }
     }
 
     .socials {
