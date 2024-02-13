@@ -44,7 +44,7 @@ const { title, subtitle, description, link, date } = Astro.props
         align-items: center;
         margin-bottom: 1rem;
         font-size: var(--fs-200);
-        color: hsl(203, 40%, 65%);
+        color: var(--clr-lightblue);
     }
 
     .time::before {
@@ -57,7 +57,7 @@ const { title, subtitle, description, link, date } = Astro.props
         width: .65rem;
         height: .65rem;
         border-radius: 50%;
-        background-color: lightskyblue;
+        background-color: var(--clr-lightblue-accent);
     }
 
     .title {
@@ -68,7 +68,7 @@ const { title, subtitle, description, link, date } = Astro.props
     .subtitle {
         margin-bottom: 0.75rem;
         font-weight: 500;
-        color: hsl(270, 70%, 65%);
+        color: var(--clr-purple);
     }
 
     .description {

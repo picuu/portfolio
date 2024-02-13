@@ -63,10 +63,22 @@ const { title, description } = Astro.props;
 
 <style is:global>
 	:root {
-		--clr-text: oklch(92% 0 0);
-		--clr-background: oklch(13% 0.0126 255);
+		--clr-text: #e4e4e4;
+		--clr-text-secondary: #bbb;
+		--clr-background: #05080c;
 		--clr-nav: rgba(55 55 58 / .75);
 		--clr-border: rgba(100 100 100 / 0.5);
+
+		--clr-card-bg: #191d23;
+		--clr-card-border: #292f37;
+
+		--clr-footer-bg: #05070b;
+		--clr-footer-border: #64646459;
+
+		--clr-lightblue: #82aec9;
+		--clr-lightblue-accent: #a4dcff;
+		--clr-purple: #a667e4;
+		--clr-yellow: #fef08ae6;
 
 		--ff-base: 'Onest Variable', system-ui, sans-serif;
 		--ff-mono: serif;
@@ -140,14 +152,6 @@ const { title, description } = Astro.props;
 	p { text-wrap: pretty; }
 
 	/* --------------- MEDIA QUERIES --------------- */
-
-	@media (prefers-color-scheme: light) {
-		:root {
-			--clr-text: oklch(17% 0 0);
-			--clr-background: oklch(95% 0.0125 255);
-			--clr-nav: oklch(89% 0.025 270);
-		}
-	}
 
 	@media (prefers-reduced-motion: reduce) {
 		html {

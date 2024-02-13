@@ -7,7 +7,7 @@ import GitHubIcon from '../icons/GitHub.astro'
 ---
 
 
-<p class="info">Puedes enviarme un correo a través de <span class="mail" id="mail" tooltip-content="Copiar email">contact@picu.es</span></p>
+<p class="info">Puedes enviarme un correo a través de <strong class="mail" id="mail" tooltip-content="Copiar email">contact@picu.es</strong></p>
 
 <div class="socials">
     <Social href="https://github.com/picuu">
@@ -39,7 +39,8 @@ import GitHubIcon from '../icons/GitHub.astro'
         display: inline-flex;
         flex-direction: column;
         align-items: center;
-        color: rgb(176, 195, 255);
+        font-weight: 450;
+        color: var(--clr-lightblue-accent);
         text-decoration: underline;
         text-decoration-color: transparent;
         transition: text-decoration-color 150ms ease-in-out;
@@ -56,7 +57,8 @@ import GitHubIcon from '../icons/GitHub.astro'
         display: none;
         top: calc(-100% - 1rem);
         padding: .5rem .75rem;
-        background-color: #111827;
+        background-color: var(--clr-card-bg);
+        border: 1px solid var(--clr-card-border);
         border-radius: 0.5rem;
         font-size: 0.875rem;
         font-weight: 500;
@@ -72,7 +74,7 @@ import GitHubIcon from '../icons/GitHub.astro'
         width: 24px;
         height: 12px;
         border: solid;
-        border-color: #111827 transparent;
+        border-color: var(--clr-card-bg) transparent;
         border-width: 0 12px 12px 12px;
         transform: rotateZ(180deg);
     }
@@ -121,7 +123,7 @@ import GitHubIcon from '../icons/GitHub.astro'
     .socials p {
         font-size: calc(var(--fs-200) - .06rem);
         font-weight: 300;
-        opacity: .75;
+        color: var(--clr-text-secondary);
     }
 </style>
 

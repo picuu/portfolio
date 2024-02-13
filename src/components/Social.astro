@@ -15,14 +15,14 @@ const { href } = Astro.props
         display: flex;
         flex-direction: column;
         padding: 1rem;
-        background-color: #1c2026;
-        border: 2px solid #2c333b;
+        background-color: var(--clr-card-bg);
+        border: 2px solid var(--clr-card-border);
         border-radius: .75rem;
         transition: background-color .2s ease-in-out, transform .2s ease-in-out;
     }
 
     a:hover {
-        background-color: #2c333b;
+        background-color: var(--clr-card-border);
         transform: translateY(-4px);
         cursor: pointer;
     }
