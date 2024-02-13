@@ -1,4 +1,5 @@
 ---
+import MenuIcon from "../icons/Menu.astro"
 import BriefcaseIcon from "../icons/Briefcase.astro"
 import AppsIcon from "../icons/Apps.astro"
 import UserIcon from "../icons/User.astro"
@@ -17,7 +18,15 @@ import AtIcon from "../icons/At.astro"
 </header>
 
 <header class="mobile-header" id="mobileHeader">
-    <a href="/">
+    <ul>
+        <li>Carlos Capó</li>
+        <li>
+            <button aria-label="open navigation menu">
+                <MenuIcon size="28" />
+            </button>
+        </li>
+    </ul>
+    <a href="/#top">
         <img src="/images/profile.webp" alt="Retrato de Carlos Capó">
         <div>
             <h3>Carlos Capó</h3>
@@ -98,7 +107,7 @@ import AtIcon from "../icons/At.astro"
             position: fixed;
             left: 0;
             bottom: 0;
-            padding: 2.5rem 2rem 1.25rem 2rem;
+            padding: 1.5rem 2rem 1.25rem 2rem;
             width: 100%;
             /* height: 8rem; */
             display: flex;
@@ -108,12 +117,13 @@ import AtIcon from "../icons/At.astro"
             border-top-left-radius: .75rem;
             border-top-right-radius: .75rem;
             z-index: 999;
-            transform: translateY(90%);
-            transition: transform 300ms ease-in-out;
+            transform: translateY(84.5%);
+            transition: transform 250ms ease-in-out,
+                        padding-top 150ms ease-in-out;
         }
 
         .mobile-header::before {
-            --length: 65%;
+            --length: 60%;
 
             content: '';
             position: absolute;
@@ -124,6 +134,27 @@ import AtIcon from "../icons/At.astro"
             margin-left: calc((100% - var(--length)) / 2);
             background-color: var(--clr-card-border);
             border-radius: 100vw;
+        }
+
+        .mobile-header ul {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 1rem;
+            list-style: none;
+            font-size: var(--fs-200);
+        }
+
+        .mobile-header ul button {
+            border-radius: .5rem;
+            border: none;
+            background-color: transparent;
+            transition: transform 200ms ease-in-out;
+        }
+
+        .mobile-header ul button:hover {
+            cursor: pointer;
+            transform: rotateX(35deg);
         }
 
         .mobile-header a {
@@ -165,9 +196,26 @@ import AtIcon from "../icons/At.astro"
             border-radius: .5rem;
         }
 
+        .show-mobile-header ul {
+            animation: fade-out 100ms forwards 50ms;
+        }
+
         .show-mobile-header {
             transform: translateY(0);
+            padding-top: 2.5rem;
         }
+
+        @keyframes fade-out {
+            from {
+                opacity: 1;
+                display: flex;
+            }
+            to {
+                opacity: 0;
+                display: none;
+            }
+        }
+
     }
 </style>
 
