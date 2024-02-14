@@ -1,5 +1,6 @@
 ---
-
+import SocialButton from "./SocialButton.astro";
+import DownloadFileIcon from "../icons/DownloadFile.astro";
 ---
 
 <div class="container">
@@ -17,14 +18,20 @@
         </p>
     </div>
 
-    <img loading="lazy" src="/images/profile.webp" alt="Profile photo" />
+    <img loading="lazy" src="/images/profile.webp" alt="Retrato de Carlos Capó" />
 </div>
+
+<SocialButton href="#">
+    <DownloadFileIcon size="24" />
+    Descargar CV
+</SocialButton>
 
 <style>
     .container {
         display: flex;
         align-items: center;
         gap: 4.5rem;
+        margin-bottom: 1rem;
     }
 
     .about-info {
