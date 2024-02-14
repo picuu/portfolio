@@ -7,7 +7,7 @@ import GitHubIcon from '../icons/GitHub.astro'
 ---
 
 
-<p class="info">Puedes enviarme un correo a través de <strong class="mail" id="mail" tooltip-content="Copiar email">contact@picu.es</strong></p>
+<p class="info">Puedes enviarme un correo a través de <strong class="mail" id="mail" data-tooltip-content="Copiar email">contact@picu.es</strong></p>
 
 <div class="socials">
     <Social href="https://github.com/picuu">
@@ -52,7 +52,7 @@ import GitHubIcon from '../icons/GitHub.astro'
     }
 
     .mail:before {
-        content: attr(tooltip-content);
+        content: attr(data-tooltip-content);
         position: absolute;
         display: none;
         top: calc(-100% - 1rem);
@@ -81,31 +81,7 @@ import GitHubIcon from '../icons/GitHub.astro'
     
     .mail:hover:before, .mail:hover:after, .mail:focus:before, .mail:focus:after {
         display: block;
-        animation: fade-in 200ms;
-    }
-
-    .mail:not(:hover):before, .mail:not(:hover):after {
-        animation: fade-out 200ms;
-    }
-
-    @keyframes fade-in {
-        0% {
-            opacity: 0;
-        }
-        100% {
-            opacity: 1;
-        }
-    }
-
-    @keyframes fade-out {
-        0% {
-            display: block;
-            opacity: 1;
-        }
-        100% {
-            display: none;
-            opacity: 0;
-        }
+        pointer-events: none;
     }
 
     .socials {
@@ -132,9 +108,9 @@ import GitHubIcon from '../icons/GitHub.astro'
         
     mail?.addEventListener('click', () => {
         navigator.clipboard.writeText('contact@picu.es').then(() => {
-            mail.setAttribute('tooltip-content', '✅ Copiado!')
+            mail.setAttribute('data-tooltip-content', '✅ Copiado!')
             setTimeout(() => {
-                mail.setAttribute('tooltip-content', 'Copiar email')
+                mail.setAttribute('data-tooltip-content', 'Copiar email')
             }, 2000)
         })
     })
