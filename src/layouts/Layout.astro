@@ -1,8 +1,10 @@
 ---
-import Background from '../components/Background.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+import Background from '@/components/Background.astro';
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
 import '@fontsource-variable/onest';
+
+import SpeedInsights from "@vercel/speed-insights/astro"
 
 interface Props {
     title: string;
@@ -13,20 +15,49 @@ const { title, description } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang="es" dir="ltr">
     <head>
         <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
         <meta name="generator" content={Astro.generator} />
 
 		<meta name="color-scheme" content="dark light">
 
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/x-icon" href="/favicon/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
+		<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+		<meta name="theme-color" content="#202030">
 
+		<link rel="canonical" href="https://picu.es/">
+		<link rel="alternate" href="https://picu.es/" hreflang="x-default" />
+		<meta name="apple-mobile-web-app-title" content="picu.es">
+		<meta name="application-name" content="picu.es">
+		<meta name="robots" content="index, follow">
+
+		<SpeedInsights />
+
+		<!-- HTML Meta Tags -->
         <title>{title}</title>
 		<meta name="description" content={description}>
+
+		<!-- Facebook Meta Tags -->
+		<meta property="og:site_name" content="picu.es">
+		<meta property="og:url" content="https://picu.es">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content={title}>
+		<meta property="og:description" content={description}>
+		<meta property="og:image" content="/favicon/website.png">
+
+		<!-- Twitter Meta Tags -->
+		<meta name="twitter:card" content="summary_large_image">
+		<meta property="twitter:domain" content="picu.es">
+		<meta property="twitter:url" content="https://picu.es">
+		<meta name="twitter:title" content={title}>
+		<meta name="twitter:description" content={description}>
+		<meta name="twitter:image" content="/favicon/website.png">
     </head>
-    <body>
+    <body id="#top">
 		<Header />
         <slot />
 		<Footer />
@@ -36,10 +67,22 @@ const { title, description } = Astro.props;
 
 <style is:global>
 	:root {
-		--clr-text: oklch(92% 0 0);
-		--clr-background: oklch(13% 0.0126 255);
+		--clr-text: #e4e4e4;
+		--clr-text-secondary: #bbb;
+		--clr-background: #05080c;
 		--clr-nav: rgba(55 55 58 / .75);
 		--clr-border: rgba(100 100 100 / 0.5);
+
+		--clr-card-bg: #191d23;
+		--clr-card-border: #292f37;
+
+		--clr-footer-bg: #05070b;
+		--clr-footer-border: #64646459;
+
+		--clr-lightblue: #82aec9;
+		--clr-lightblue-accent: #a4dcff;
+		--clr-purple: #a667e4;
+		--clr-yellow: #fef08ae6;
 
 		--ff-base: 'Onest Variable', system-ui, sans-serif;
 		--ff-mono: serif;
@@ -113,14 +156,6 @@ const { title, description } = Astro.props;
 	p { text-wrap: pretty; }
 
 	/* --------------- MEDIA QUERIES --------------- */
-
-	@media (prefers-color-scheme: light) {
-		:root {
-			--clr-text: oklch(17% 0 0);
-			--clr-background: oklch(95% 0.0125 255);
-			--clr-nav: oklch(89% 0.025 270);
-		}
-	}
 
 	@media (prefers-reduced-motion: reduce) {
 		html {

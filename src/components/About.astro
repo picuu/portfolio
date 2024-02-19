@@ -1,5 +1,6 @@
 ---
-
+import SocialButton from "@/components/SocialButton.astro";
+import DownloadFileIcon from "@/icons/DownloadFile.astro";
 ---
 
 <div class="container">
@@ -9,7 +10,7 @@
         </p>
     
         <p>
-            Entre mis éxitos destaco que durante tanto el Grado Superior como el Medio, ayudé a mis compañeros a entender muchos conceptos y a resolver sus dudas. Me considero buen aprendiz y buen maestro, y <strong>me gusta compartir mis conocimientos con los demás</strong>.
+            Entre mis éxitos destaco que, durante el Grado Superior como el Medio, ayudé a mis compañeros a entender muchos conceptos y a resolver sus dudas. Me considero buen aprendiz y buen maestro, <strong>me gusta compartir mis conocimientos con los demás</strong>.
         </p>
     
         <p>
@@ -17,14 +18,20 @@
         </p>
     </div>
 
-    <img src="/images/profile.webp" alt="Profile photo" />
+    <img loading="lazy" src="/images/profile.webp" alt="Retrato de Carlos Capó" />
 </div>
+
+<SocialButton href="https://qiwi.lol/vhV68838-CarlosCapo-CV.pdf">
+    <DownloadFileIcon size="24" />
+    Descargar CV
+</SocialButton>
 
 <style>
     .container {
         display: flex;
         align-items: center;
         gap: 4.5rem;
+        margin-bottom: 1rem;
     }
 
     .about-info {
@@ -39,7 +46,7 @@
 
     strong {
         font-weight: 400;
-        color: rgb(164, 220, 255);
+        color: var(--clr-lightblue-accent);
     }
 
     img {

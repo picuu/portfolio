@@ -1,6 +1,6 @@
 <footer>
     <div>
-        <small>© 2024 <a href="/">picu</a></small>
+        <small>Inspirado en <a href="https://porfolio.dev/" target="_blank" rel="noopener">porfolio.dev</a></small>
     
         <ul>
             <li><a href="/blog">Blog</a></li>
@@ -22,17 +22,18 @@
 		margin-inline: auto;
         padding: 1rem 2rem;
         border-radius: 100vw;
-        border: 1px solid rgba(100 100 100 / 0.35);
-        background-color: hsl(214, 41%, 3%);
+        border: 1px solid var(--clr-footer-border);
+        background-color: var(--clr-footer-bg);
     }
 
     small {
-        color: #fef08ae6;
+        color: var(--clr-yellow);
         font-size: calc(var(--fs-200) - .1rem);
+        opacity: .5;
     }
 
     a {
-        color: #fef08ae6;
+        color: var(--clr-yellow);
         text-decoration: underline;
         text-decoration-color: transparent;
         transition: text-decoration-color 100ms ease-in-out;
@@ -69,7 +70,7 @@
     @media (width < 584px) {
         footer {
             padding-top: 0;
-            padding-bottom: 3rem;
+            padding-bottom: 5rem;
         }
     }
 

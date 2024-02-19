@@ -1,8 +1,8 @@
 ---
-import SocialButton from "./SocialButton.astro"
+import SocialButton from "@/components/SocialButton.astro"
 
-import BookIcon from "../icons/Book.astro"
-import RocketIcon from "../icons/Rocket.astro"
+import BookIcon from "@/icons/Book.astro"
+import RocketIcon from "@/icons/Rocket.astro"
 
 const PROJECTS = [
     {
@@ -28,7 +28,7 @@ const PROJECTS = [
         PROJECTS.map(({ title, description, link, github, image, tags}) => (
             <article class="repository">
                 {
-                    image && <img src={image} alt={`Captura de pantalla del proyecto ${title}`} />
+                    image && <img loading="lazy" src={image} alt={`Captura de pantalla del proyecto ${title}`} />
                 }
 
                 <h3 class="title">
@@ -72,8 +72,8 @@ const PROJECTS = [
         flex-direction: column;
         gap: .5rem;
         border-radius: .5rem;
-        background: #15171e;
-        border: 1px solid #1e2129;
+        background: var(--clr-card-bg);
+        border: 1px solid var(--clr-card-border);
         padding: 1rem 1rem 1.5rem 1rem;
     }
 
@@ -122,28 +122,37 @@ const PROJECTS = [
         background-color: #eee;
     }
 
+    :root {
+        --clr-tag-html: #ee8059;
+        --clr-tag-css: #598aee;
+        --clr-tag-js: #eee459;
+        --clr-tag-next: #ddd;
+        --clr-tag-tailwind: #0bacc9;
+        --clr-tag-react: #56d1f3;
+    }
+
     .tag[data-tag-name="HTML"]::before {
-        background-color: #ee8059;
+        background-color: var(--clr-tag-html);
     }
 
     .tag[data-tag-name="CSS"]::before {
-        background-color: #598aee;
+        background-color: var(--clr-tag-css);
     }
 
     .tag[data-tag-name="JavaScript"]::before {
-        background-color: #eee459;
+        background-color: var(--clr-tag-js);
     }
 
     .tag[data-tag-name="Next.js"]::before {
-        background-color: #ddd;
+        background-color: var(--clr-tag-next);
     }
 
     .tag[data-tag-name="Tailwind CSS"]::before {
-        background-color: #0bacc9;
+        background-color: var(--clr-tag-tailwind);
     }
 
     .tag[data-tag-name="React"]::before {
-        background-color: #56d1f3;
+        background-color: var(--clr-tag-react);
     }
 
     img {
@@ -158,7 +167,7 @@ const PROJECTS = [
     }
 
     .buttons span {
-        color: #bbb;
+        color: var(--clr-text-secondary);
     }
 
     @media (width < 584px) {
