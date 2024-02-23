@@ -28,7 +28,10 @@ const PROJECTS = [
         PROJECTS.map(({ title, description, link, github, image, tags}) => (
             <article class="repository">
                 {
-                    image && <img loading="lazy" src={image} alt={`Captura de pantalla del proyecto ${title}`} />
+                    image &&
+                    <a href={link} target="_blank" rel="noopener">
+                        <img loading="lazy" src={image} alt={`Captura de pantalla del proyecto ${title}`} />
+                    </a>
                 }
 
                 <h3 class="title">
@@ -70,6 +73,20 @@ const PROJECTS = [
         padding: 1rem 1rem 1.5rem 1rem;
     }
 
+    .repository > a {
+        margin-bottom: .75rem;
+        border-radius: .25rem;
+        overflow: hidden;
+    }
+
+    .repository > a img {
+        transition: transform 150ms ease-in-out;
+    }
+
+    .repository > a img:hover {
+        transform: scale(1.04);
+    }
+
     .title {
         display: flex;
         align-items: center;
@@ -90,11 +107,12 @@ const PROJECTS = [
 
     .description {
         margin-bottom: 1rem;
-        font-size: var(--fs-200);
+        font-size: calc(var(--fs-200) - .05rem);
         opacity: .8;
     }
 
     .tag-list {
+        margin-top: auto;
         display: flex;
         gap: 1.3rem;
         list-style: none;
@@ -146,21 +164,6 @@ const PROJECTS = [
 
     .tag[data-tag-name="React"]::before {
         background-color: var(--clr-tag-react);
-    }
-
-    img {
-        margin-bottom: .75rem;
-        border-radius: .25rem;
-    }
-
-    .buttons {
-        display: flex;
-        justify-content: flex-end;
-        gap: 1rem;
-    }
-
-    .buttons span {
-        color: var(--clr-text-secondary);
     }
 
     @media (width < 584px) {
