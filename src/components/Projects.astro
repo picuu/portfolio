@@ -47,14 +47,7 @@ const PROJECTS = [
                         </li>
                         ))
                     }
-                </ul>                
-
-                <div class="buttons">
-                    <SocialButton href={link}>
-                        <RocketIcon size="20" />
-                        <span>Web</span>
-                    </SocialButton>
-                </div>
+                </ul>
             </article>
         ))
     }
@@ -62,9 +55,9 @@ const PROJECTS = [
 
 <style>
     .repositories-container {
-        display: flex;
-        flex-direction: column;
-        gap: 3.5rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 2rem;
     }
 
     .repository {
