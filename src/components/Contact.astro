@@ -1,32 +1,20 @@
 ---
-import Social from '@/components/Social.astro'
-
-import LinkedInIcon from '@/icons/LinkedIn.astro'
-import DiscordIcon from '@/icons/Discord.astro'
-import GitHubIcon from '@/icons/GitHub.astro'
+import { SOCIALS } from '@/Socials.js'
 ---
 
 
 <p class="info">Puedes enviarme un correo a través de <strong class="mail" id="mail" data-tooltip-content="Copiar email">contact@picu.es</strong></p>
 
 <div class="socials">
-    <Social href="https://github.com/picuu">
-        <GitHubIcon width="24" height="24" />
-        <span>@picuu</span>
-        <p>Mira mis proyectos de código abierto</p>
-    </Social>
-
-    <Social href='https://linkedin.com/in/carloscapo'>
-        <LinkedInIcon width="24" height="24" />
-        <span>@carloscapo</span>
-        <p>Conecta conmigo en LinkedIn</p>
-    </Social>
-
-    <Social href="https://picu.es/discord">
-        <DiscordIcon width="24" height="24" />
-        <span>@piicuu</span>
-        <p>Envíame un mensaje a través de Discord</p>
-    </Social>
+    {
+        SOCIALS.map((social) => (
+        <a href={social.link} target="_blank" rel="noopener noreferrer">
+            <social.icon size="24" />
+            <span>@{social.username}</span>
+            <p>{social.description}</p>
+        </a>
+        ))
+    }
 </div>
 
 <style>
@@ -44,63 +32,80 @@ import GitHubIcon from '@/icons/GitHub.astro'
         text-decoration: underline;
         text-decoration-color: transparent;
         transition: text-decoration-color 150ms ease-in-out;
-    }
 
-    .mail:hover {
-        text-decoration-color: currentColor;
-        cursor: pointer;
-    }
+        &:hover {
+            text-decoration-color: currentColor;
+            cursor: pointer;
+        }
 
-    .mail:before {
-        content: attr(data-tooltip-content);
-        position: absolute;
-        display: none;
-        top: calc(-100% - 1rem);
-        padding: .5rem .75rem;
-        background-color: var(--clr-card-bg);
-        border: 1px solid var(--clr-card-border);
-        border-radius: 0.5rem;
-        font-size: 0.875rem;
-        font-weight: 500;
-        line-height: 1.25rem;
-        color: #eee;
-    }
+        &:before {
+            content: attr(data-tooltip-content);
+            position: absolute;
+            display: none;
+            top: calc(-100% - 1rem);
+            padding: .5rem .75rem;
+            background-color: var(--clr-card-bg);
+            border: 1px solid var(--clr-card-border);
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            line-height: 1.25rem;
+            color: #eee;
+        }
 
-    .mail:after {
-        content: "";
-        position: absolute;
-        display: none;
-        bottom: calc(100% + .075rem);
-        width: 24px;
-        height: 12px;
-        border: solid;
-        border-color: var(--clr-card-bg) transparent;
-        border-width: 0 12px 12px 12px;
-        transform: rotateZ(180deg);
-    }
-    
-    .mail:hover:before, .mail:hover:after, .mail:focus:before, .mail:focus:after {
-        display: block;
-        pointer-events: none;
+        &:after {
+            content: "";
+            position: absolute;
+            display: none;
+            bottom: calc(100% + .075rem);
+            width: 24px;
+            height: 12px;
+            border: solid;
+            border-color: var(--clr-card-bg) transparent;
+            border-width: 0 12px 12px 12px;
+            transform: rotateZ(180deg);
+        }
+
+        &:hover:before, &:hover:after, &:focus:before, &:focus:after {
+            display: block;
+            pointer-events: none;
+        }
     }
 
     .socials {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
         gap: 1rem;
+
+        & a {
+            display: flex;
+            flex-direction: column;
+            padding: 1rem;
+            background-color: var(--clr-card-bg);
+            border: 2px solid var(--clr-card-border);
+            border-radius: .75rem;
+            transition: background-color .2s ease-in-out, transform .2s ease-in-out;
+        }
+
+        & a:hover {
+            background-color: var(--clr-card-border);
+            transform: translateY(-4px);
+            cursor: pointer;
+        }
+
+        & span {
+            margin-top: .9rem;
+            margin-bottom: .2rem;
+            font-weight: 700;
+        }
+    
+        & p {
+            font-size: calc(var(--fs-200) - .06rem);
+            font-weight: 300;
+            color: var(--clr-text-secondary);
+        }
     }
 
-    .socials span {
-        margin-top: .9rem;
-        margin-bottom: .2rem;
-        font-weight: 700;
-    }
-
-    .socials p {
-        font-size: calc(var(--fs-200) - .06rem);
-        font-weight: 300;
-        color: var(--clr-text-secondary);
-    }
 </style>
 
 <script>
