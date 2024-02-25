@@ -78,11 +78,25 @@ import AtIcon from "@/icons/At.astro"
         gap: 1rem;
         margin-top: 1rem;
         padding: .45rem .75rem;
-        border: 1px solid var(--clr-border);
+        border: 1px solid var(--clr-border-accent);
         border-radius: 100vw;
         background-color: var(--clr-nav);
-        backdrop-filter: blur(8px);
-        filter: drop-shadow(0 0 4rem hsla(235, 80%, 72%, .25));
+        filter: drop-shadow(0 0 4rem hsla(235, 80%, 72%, .35));
+        backdrop-filter: blur(10px);
+        box-shadow: 0 8px 32px 0 rgb(0 0 0 / .25);
+    }
+
+    .header nav:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: inherit;
+        background: url(/concrete.png);
+        opacity: .1;
+        pointer-events: none;
     }
 
     .header nav a {
