@@ -91,6 +91,7 @@ import SendIcon from "@/icons/Send.astro"
 
     .intro-image {
         width: 200px;
+        aspect-ratio: 1;
         border-radius: 50%;
     }
 
@@ -116,17 +117,28 @@ import SendIcon from "@/icons/Send.astro"
         section.intro {
             flex-direction: column;
             align-items: center;
-            margin-top: 11rem;
+            padding-top: 11rem;
         }
 
         .intro-image {
             width: 225px;
+            height: 225px;
+            aspect-ratio: 1;
         }
     }
 
     @media (width < 584px) {
         section.intro {
-            margin-top: 7rem;
+            padding-top: 7rem;
+        }
+
+        .intro-info {
+            align-items: center;
+            text-align: center;
+        }
+
+        .intro-socials {
+            justify-content: center;
         }
     }
 </style>
