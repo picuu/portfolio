@@ -54,7 +54,7 @@ import SendIcon from "@/icons/Send.astro"
             <Experience />
         </Section>
 
-        <Section id="proyectos">
+        <Section id="proyectos" class="projects">
             <SectionTitle>
                 <AppsIcon size="34" />
                 Proyectos
@@ -62,7 +62,7 @@ import SendIcon from "@/icons/Send.astro"
             <Projects />
         </Section>
 
-        <Section id="sobre-mi">
+        <Section id="sobre-mi" class="about">
             <SectionTitle>
                 <UserIcon size="34" />
                 Sobre mí
@@ -140,6 +140,36 @@ import SendIcon from "@/icons/Send.astro"
         .intro-socials {
             justify-content: center;
         }
+    }
+
+    section.projects {
+        position: relative;
+    }
+
+    section.projects:after, section.projects:before {
+        position: absolute;
+        inset: 0;
+        margin: auto;
+        width: 412px;
+        height: 250px;
+        filter: blur(4rem);
+        opacity: .4;
+        z-index: -99;
+    }
+
+    section.projects:before {
+        content: url("/images/luz-roja.svg");
+        transform: translate(-105%, 10%) rotateZ(-45deg);
+        filter: blur(4rem) hue-rotate(250deg);
+    }
+
+    section.projects:after {
+        content: url("/images/luz-morada.svg");
+        transform: translate(100%, -90%);
+    }
+
+    section.about {
+        position: relative;
     }
 
 </style>
