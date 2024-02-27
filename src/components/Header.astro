@@ -97,6 +97,7 @@ import AtIcon from "@/icons/At.astro"
         background: url(/concrete.png);
         opacity: .1;
         pointer-events: none;
+        z-index: -1;
     }
 
     .header nav a {
@@ -104,15 +105,16 @@ import AtIcon from "@/icons/At.astro"
         border-radius: 100vw;
         font-size: var(--fs-300);
         opacity: .75;
-        transition: opacity 250ms ease-in-out, background-color 250ms ease-in-out;
+        transition: opacity 200ms ease-in-out, background-color 250ms ease-in-out;
+        z-index: 1;
     }
 
     .header nav a:hover {
         opacity: 1;
-        background-color: var(--clr-border);
+        background-color: rgb(160 160 160 / 0.15);
     }
 
-    @media (width < 584px) {
+    @media (width < 560px) {
         .header {
             display: none;
         }
@@ -127,9 +129,10 @@ import AtIcon from "@/icons/At.astro"
             display: flex;
             flex-direction: column;
             justify-content: center;
-            background-color: var(--clr-card-bg);
+            background-color: #181a2c;
             border-top-left-radius: .75rem;
             border-top-right-radius: .75rem;
+            backdrop-filter: blur(10px);
             z-index: 999;
             transform: translateY(84.5%);
             transition: transform 250ms ease-in-out,
@@ -146,17 +149,21 @@ import AtIcon from "@/icons/At.astro"
             width: var(--length);
             height: 6px;
             margin-left: calc((100% - var(--length)) / 2);
-            background-color: var(--clr-card-border);
+            background-color: var(--clr-border-accent);
             border-radius: 100vw;
         }
 
         .mobile-header ul {
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: flex-start;
             padding-bottom: 1rem;
             list-style: none;
             font-size: var(--fs-200);
+        }
+
+        .mobile-header ul li:first-of-type {
+            cursor: pointer;
         }
 
         .mobile-header ul button {
@@ -177,6 +184,7 @@ import AtIcon from "@/icons/At.astro"
             gap: 1rem;
             padding: 1rem;
             border-radius: .5rem;
+            transition: background-color .2s ease-in-out;
         }
 
         .mobile-header a img {
@@ -195,7 +203,7 @@ import AtIcon from "@/icons/At.astro"
         }
 
         .mobile-header a:hover {
-            background-color: var(--clr-card-border);
+            background-color: rgb(255 255 255 / .1);
         }
 
         .mobile-header nav {
