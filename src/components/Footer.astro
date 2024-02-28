@@ -29,7 +29,7 @@
     small {
         color: var(--clr-yellow);
         font-size: calc(var(--fs-200) - .1rem);
-        opacity: .5;
+        opacity: .65;
     }
 
     a {
@@ -50,13 +50,18 @@
         font-size: calc(var(--fs-200) - .1rem);
     }
 
-    @media (width < 460px) {
+    @media (width < 584px) {
         footer {
-            padding: 1rem 0 1rem 0;
+            padding-top: 0;
+            padding-bottom: 5rem;
         }
 
         footer > div {
-            /* flex-direction: column-reverse; */
+            align-items: center;
+    }
+
+    @media (width < 460px) {
+        footer > div {
             align-items: center;
             gap: .75rem;
             width: 100% - 2rem;
@@ -64,13 +69,6 @@
 
         .mobile-hide {
             display: none;
-        }
-    }
-
-    @media (width < 584px) {
-        footer {
-            padding-top: 0;
-            padding-bottom: 5rem;
         }
     }
 

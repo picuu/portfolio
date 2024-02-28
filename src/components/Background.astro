@@ -1,12 +1,40 @@
-<div></div>
+<div class="color"></div>
+<div class="gradient"></div>
+<div class="noise"></div>
 
 <style>
-    div {
+    .gradient {
         position: absolute;
         top: 0;
+        bottom: 35%;
         width: 100vw;
-        height: 100vh;
+        min-height: 100vh;
         background: radial-gradient(ellipse 80% 80% at 50% -20%, rgba(120 119 198 / .3), rgba(255 255 255 / 0));
         z-index: -999;
+    }
+
+    .noise {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100vw;
+        min-height: 100vh;
+        background: url(/images/concrete-dark.png) repeat;
+        opacity: 60%;
+        mix-blend-mode: multiply;
+        z-index: -998;
+        pointer-events: none;
+    }
+
+    .color {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100vw;
+        min-height: 100vh;
+        background: var(--clr-lightblue-accent);
+        opacity: .85;
+        mix-blend-mode: overlay;
+        z-index: -1;
     }
 </style>

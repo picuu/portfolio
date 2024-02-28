@@ -28,7 +28,10 @@ const PROJECTS = [
         PROJECTS.map(({ title, description, link, github, image, tags}) => (
             <article class="repository">
                 {
-                    image && <img loading="lazy" src={image} alt={`Captura de pantalla del proyecto ${title}`} />
+                    image &&
+                    <a href={link} target="_blank" rel="noopener">
+                        <img loading="lazy" src={image} alt={`Captura de pantalla del proyecto ${title}`} width="420" />
+                    </a>
                 }
 
                 <h3 class="title">
@@ -47,14 +50,7 @@ const PROJECTS = [
                         </li>
                         ))
                     }
-                </ul>                
-
-                <div class="buttons">
-                    <SocialButton href={link}>
-                        <RocketIcon size="20" />
-                        <span>Web</span>
-                    </SocialButton>
-                </div>
+                </ul>
             </article>
         ))
     }
@@ -62,9 +58,9 @@ const PROJECTS = [
 
 <style>
     .repositories-container {
-        display: flex;
-        flex-direction: column;
-        gap: 3.5rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 2rem;
     }
 
     .repository {
@@ -72,9 +68,27 @@ const PROJECTS = [
         flex-direction: column;
         gap: .5rem;
         border-radius: .5rem;
-        background: var(--clr-card-bg);
-        border: 1px solid var(--clr-card-border);
+        background: var(--clr-nav);
+        border: 1px solid var(--clr-border);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 4px 16px 2px rgb(0 0 0 / .15);
         padding: 1rem 1rem 1.5rem 1rem;
+    }
+
+    .repository > a {
+        margin-bottom: .75rem;
+        border-radius: .25rem;
+        overflow: hidden;
+    }
+
+    .repository > a img {
+        width: 420px;
+        aspect-ratio: 16 / 9;
+        transition: transform 150ms ease-in-out;
+    }
+
+    .repository > a img:hover {
+        transform: scale(1.04);
     }
 
     .title {
@@ -97,11 +111,12 @@ const PROJECTS = [
 
     .description {
         margin-bottom: 1rem;
-        font-size: var(--fs-200);
+        font-size: calc(var(--fs-200) - .05rem);
         opacity: .8;
     }
 
     .tag-list {
+        margin-top: auto;
         display: flex;
         gap: 1.3rem;
         list-style: none;
@@ -153,21 +168,6 @@ const PROJECTS = [
 
     .tag[data-tag-name="React"]::before {
         background-color: var(--clr-tag-react);
-    }
-
-    img {
-        margin-bottom: .75rem;
-        border-radius: .25rem;
-    }
-
-    .buttons {
-        display: flex;
-        justify-content: flex-end;
-        gap: 1rem;
-    }
-
-    .buttons span {
-        color: var(--clr-text-secondary);
     }
 
     @media (width < 584px) {

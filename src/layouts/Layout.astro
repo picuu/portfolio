@@ -70,11 +70,9 @@ const { title, description } = Astro.props;
 		--clr-text: #e4e4e4;
 		--clr-text-secondary: #bbb;
 		--clr-background: #05080c;
-		--clr-nav: rgba(55 55 58 / .75);
-		--clr-border: rgba(100 100 100 / 0.5);
-
-		--clr-card-bg: #191d23;
-		--clr-card-border: #292f37;
+		--clr-border: #292f37d0;
+		--clr-border-accent: rgba(100 100 100 / 0.5);
+		--clr-nav: rgba(100 100 100 / .1);
 
 		--clr-footer-bg: #05070b;
 		--clr-footer-border: #64646459;
@@ -110,6 +108,7 @@ const { title, description } = Astro.props;
 	}
 
 	body {
+		position: relative;
 		min-height: 100dvh;
 		background-color: var(--clr-background);
 		font-family: var(--ff-base);
@@ -125,7 +124,7 @@ const { title, description } = Astro.props;
 	}
 
 	main {
-		width: min(60ch, 100% - 4rem);
+		width: min(70ch, 100% - 4rem);
 		margin-inline: auto;
 	}
 

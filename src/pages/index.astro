@@ -54,7 +54,7 @@ import SendIcon from "@/icons/Send.astro"
             <Experience />
         </Section>
 
-        <Section id="proyectos">
+        <Section id="proyectos" class="projects">
             <SectionTitle>
                 <AppsIcon size="34" />
                 Proyectos
@@ -62,7 +62,7 @@ import SendIcon from "@/icons/Send.astro"
             <Projects />
         </Section>
 
-        <Section id="sobre-mi">
+        <Section id="sobre-mi" class="about">
             <SectionTitle>
                 <UserIcon size="34" />
                 Sobre mí
@@ -85,12 +85,14 @@ import SendIcon from "@/icons/Send.astro"
         display: flex;
         align-items: flex-start;
         gap: 3rem;
-        margin-top: 15rem;
+        padding-top: 15rem;
         padding-bottom: 12rem;
     }
 
     .intro-image {
         width: 200px;
+        height: 200px;
+        aspect-ratio: 1 / 1;
         border-radius: 50%;
     }
 
@@ -116,17 +118,59 @@ import SendIcon from "@/icons/Send.astro"
         section.intro {
             flex-direction: column;
             align-items: center;
-            margin-top: 11rem;
+            padding-top: 11rem;
         }
 
         .intro-image {
             width: 225px;
+            height: 225px;
+            aspect-ratio: 1 / 1;
         }
     }
 
-    @media (width < 584px) {
+    @media (width < 560px) {
         section.intro {
-            margin-top: 7rem;
+            padding-top: 5.5rem;
+        }
+
+        .intro-info {
+            align-items: center;
+            text-align: center;
+        }
+
+        .intro-socials {
+            justify-content: center;
         }
     }
+
+    section.projects {
+        position: relative;
+    }
+
+    section.projects:after, section.projects:before {
+        position: absolute;
+        inset: 0;
+        margin: auto;
+        width: 412px;
+        height: 250px;
+        filter: blur(4rem);
+        opacity: .4;
+        z-index: -99;
+    }
+
+    section.projects:before {
+        content: url("/images/blue-light.svg");
+        transform: translate(-105%, 10%) rotateZ(-45deg);
+        filter: blur(4rem);
+    }
+
+    section.projects:after {
+        content: url("/images/purple-light.svg");
+        transform: translate(100%, -90%);
+    }
+
+    section.about {
+        position: relative;
+    }
+
 </style>
