@@ -30,7 +30,7 @@ const PROJECTS = [
                 {
                     image &&
                     <a href={link} target="_blank" rel="noopener">
-                        <img loading="lazy" src={image} alt={`Captura de pantalla del proyecto ${title}`} />
+                        <img loading="lazy" src={image} alt={`Captura de pantalla del proyecto ${title}`} width="420" />
                     </a>
                 }
 
@@ -82,6 +82,8 @@ const PROJECTS = [
     }
 
     .repository > a img {
+        width: 420px;
+        aspect-ratio: 16 / 9;
         transition: transform 150ms ease-in-out;
     }
 
