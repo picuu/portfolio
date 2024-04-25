@@ -1,35 +1,6 @@
 ---
-import SocialButton from "@/components/SocialButton.astro"
-
 import BookIcon from "@/icons/Book.astro"
-import RocketIcon from "@/icons/Rocket.astro"
-
-const PROJECTS = [
-    {
-        title: "Cleaning Schedule",
-        description: "App web para gestionar el horario de limpieza de un piso compartido. Creado desde cero con HTML, CSS y JavaScript. Inspirado en la interfaz y temáticas de shadcn/ui.",
-        link: "https://cleaning-schedule.vercel.app",
-        github: "https://github.com/picuu/cleaning-schedule",
-        image: "/projects/cleaning-schedule.webp",
-        tags: ["HTML", "CSS", "JavaScript"]
-    },
-    {
-        title: "ITBFlix",
-        description: "Plataforma web inspirada en Netflix. Proyecto para el módulo de Lenguajes de Marcas del CFGS de Desarrollo de Aplicaciones Web. Creado con HTML y CSS.",
-        link: "https://itbflix.vercel.app",
-        github: "https://github.com/picuu/itbflix",
-        image: "/projects/itbflix.webp",
-        tags: ["HTML", "CSS"]
-    },
-    {
-        title: "Buscaminas",
-        description: "Imitación del clasico juego del buscaminas. Hecho únicamente con JavaScript. Proyecto para el módulo de JavaScript del CFGS de Desarrollo de Aplicaciones Web.",
-        link: "https://itb-buscaminas.netlify.app/",
-        github: "https://github.com/picuu/itb-buscaminas",
-        image: "/projects/buscaminas.webp",
-        tags: ["HTML", "CSS", "JavaScript"]
-    }
-]
+import { PROJECTS } from "@/data/Projects.js"
 ---
 <div class="repositories-container">
     {
