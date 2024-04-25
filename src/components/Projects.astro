@@ -1,11 +1,13 @@
 ---
+import SocialButton from "@/components/SocialButton.astro"
+import WorldIcon from "@/icons/World.astro"
 import BookIcon from "@/icons/Book.astro"
 import { PROJECTS } from "@/data/Projects.js"
 ---
 <div class="repositories-container">
     {
-        PROJECTS.map(({ title, description, link, github, image, tags}) => (
-            <article class="repository">
+        PROJECTS.map(({ title, description, link, github, image, tags}, index) => (
+            <article class="repository" id={`repo${index+1}`}>
                 {
                     image &&
                     <a href={link} target="_blank" rel="noopener">
@@ -30,6 +32,13 @@ import { PROJECTS } from "@/data/Projects.js"
                         ))
                     }
                 </ul>
+
+                {
+                    !image &&
+                    <SocialButton href={link} classList="absolute-icon">
+                        <WorldIcon size="19" />
+                    </SocialButton>
+                }
             </article>
         ))
     }
@@ -39,10 +48,32 @@ import { PROJECTS } from "@/data/Projects.js"
     .repositories-container {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        grid-template-rows: [top] 1fr [middle-top] 1fr [middle-bottom] 1fr [bottom];
         gap: 2rem;
     }
 
+    #repo1 {
+        grid-row-start: top;
+        grid-row-end: middle-top;
+    }
+
+    #repo2 {
+        grid-row-start: top;
+        grid-row-end: middle-bottom;
+    }
+
+    #repo3 {
+        grid-row-start: middle-top;
+        grid-row-end: bottom;
+    }
+
+    #repo4 {
+        grid-row-start: middle-bottom;
+        grid-row-end: bottom;
+    }
+
     .repository {
+        position: relative;
         display: flex;
         flex-direction: column;
         gap: .5rem;
@@ -67,6 +98,12 @@ import { PROJECTS } from "@/data/Projects.js"
 
     .repository > a img:hover {
         transform: scale(1.04);
+    }
+
+    :global(.absolute-icon) {
+        position: absolute;
+        bottom: 1rem;
+        right: 1rem;
     }
 
     .title {

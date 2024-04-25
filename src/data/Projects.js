@@ -4,7 +4,8 @@ export const PROJECTS = [
         description: "Blog dónde subo artículos que me parecen interesantes o apuntes. Es mi manera de compartir mi concimiento y además aprender lo que conlleva hacer el blog.",
         link: "https://blog.carloscapo.com/",
         github: "https://github.com/picuu/blog",
-        tags: ["Astro", "TypeScript"]
+        // image: "/projects/blog.webp",
+        tags: ["Astro", "TypeScript", "PRÓXIMAMENTE"]
     },
     {
         title: "ITBFlix",
@@ -24,10 +25,10 @@ export const PROJECTS = [
     },
     {
         title: "Cleaning Schedule",
-        description: "App web para gestionar el horario de limpieza de un piso compartido. Creado desde cero con HTML, CSS y JavaScript. Inspirado en la interfaz y temáticas de shadcn/ui.",
+        description: "App web para gestionar el horario de limpieza de un piso compartido. Inspirado en la interfaz y temáticas de shadcn/ui.",
         link: "https://cleaning-schedule.vercel.app",
         github: "https://github.com/picuu/cleaning-schedule",
-        image: "/projects/cleaning-schedule.webp",
+        // image: "/projects/cleaning-schedule.webp",
         tags: ["HTML", "CSS", "JavaScript"]
     }
 ]
