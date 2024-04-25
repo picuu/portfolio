@@ -178,6 +178,16 @@ import SendIcon from "@/icons/Send.astro"
         transform: translate(100%, -90%);
     }
 
+    @media (width < 700px) {
+        section.projects:before {
+            transform: translate(-90%, 150%) rotateZ(-45deg);
+        }
+
+        section.projects:after {
+            transform: translate(70%, -150%);
+        }
+    }
+
     section.about {
         position: relative;
     }
