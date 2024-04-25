@@ -26,7 +26,9 @@ import SendIcon from "@/icons/Send.astro"
             <img class="intro-image" src="/images/profile.webp" alt="Retrato de Carlos Capó" width="200" height="200" />
             <div class="intro-info">
                 <h1>Carlos Capó</h1>
-                <p class="intro-info-description">Desarrollador web de 18 años en Barcelona, autodidacta y motivado, enfocado en crear soluciones innovadoras con una actitud activa y responsable.</p>
+                <p class="intro-info-description">
+                    Desarrollador web de 18 años en Barcelona autodidacta y proactivo, motivado a aprender y progresar.
+                </p>
                 <div class="intro-socials">
                     <SocialButton href="https://github.com/picuu">
                         <GitHubIcon slot="before" size="24" />
@@ -100,6 +102,13 @@ import SendIcon from "@/icons/Send.astro"
         display: flex;
         flex-direction: column;
         gap: 1rem;
+    }
+
+    .intro-info h1 {
+        background: linear-gradient(to right, #389cee, #22e9d8);
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+        font-weight: 800;
     }
 
     .intro-info-description {
