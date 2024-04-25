@@ -122,6 +122,8 @@ import { PROJECTS } from "@/data/Projects.js"
         --clr-tag-next: #ddd;
         --clr-tag-tailwind: #0bacc9;
         --clr-tag-react: #56d1f3;
+        --clr-tag-astro: #d83333;
+        --clr-tag-typescript: #3178c6;
     }
 
     .tag[data-tag-name="HTML"]::before {
@@ -146,6 +148,14 @@ import { PROJECTS } from "@/data/Projects.js"
 
     .tag[data-tag-name="React"]::before {
         background-color: var(--clr-tag-react);
+    }
+
+    .tag[data-tag-name="Astro"]::before {
+        background-color: var(--clr-tag-astro);
+    }
+
+    .tag[data-tag-name="TypeScript"]::before {
+        background-color: var(--clr-tag-typescript);
     }
 
     @media (width < 584px) {
