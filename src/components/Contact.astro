@@ -3,7 +3,7 @@ import { SOCIALS } from '@/Socials.js'
 ---
 
 
-<p class="info">Puedes enviarme un correo a través de <strong class="mail" id="mail" data-tooltip-content="Copiar email">contact@picu.es</strong></p>
+<p class="info">Puedes enviarme un correo a través de <strong class="mail" id="mail" data-tooltip-content="Copiar email">contact@carloscapo.com</strong></p>
 
 <div class="socials">
     {
@@ -112,7 +112,7 @@ import { SOCIALS } from '@/Socials.js'
     const mail = document.getElementById('mail')
         
     mail?.addEventListener('click', () => {
-        navigator.clipboard.writeText('contact@picu.es').then(() => {
+        navigator.clipboard.writeText('contact@carloscapo.com').then(() => {
             mail.setAttribute('data-tooltip-content', '✅ Copiado!')
             setTimeout(() => {
                 mail.setAttribute('data-tooltip-content', 'Copiar email')
