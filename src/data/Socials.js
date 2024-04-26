@@ -16,7 +16,7 @@ export const SOCIALS = [
         description: 'Conecta conmigo en LinkedIn'
     },
     {
-        link: 'https://picu.es/discord',
+        link: 'https://carloscapo.com/discord',
         icon: DiscordIcon,
         username: 'piicuu',
         description: 'Envíame un mensaje a través de Discord'

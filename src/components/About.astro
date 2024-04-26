@@ -21,7 +21,7 @@ import DownloadFileIcon from "@/icons/DownloadFile.astro";
     <img loading="lazy" src="/images/profile.webp" alt="Retrato de Carlos Capó" width="225" height="225" />
 </div>
 
-<SocialButton href="https://qiwi.lol/vhV68838-CarlosCapo-CV.pdf">
+<SocialButton href="/CV-CarlosCapo.pdf">
     <DownloadFileIcon size="24" />
     Descargar CV
 </SocialButton>
@@ -76,5 +76,11 @@ import DownloadFileIcon from "@/icons/DownloadFile.astro";
         background-size: 16px 16px;
         z-index: -999;
         transform: scale(1.3);
+    }
+
+    @media (width < 700px) {
+        .background {
+            opacity: .85;
+        }
     }
 </style>

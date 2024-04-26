@@ -1,36 +1,17 @@
 ---
 import SocialButton from "@/components/SocialButton.astro"
-
+import WorldIcon from "@/icons/World.astro"
 import BookIcon from "@/icons/Book.astro"
-import RocketIcon from "@/icons/Rocket.astro"
-
-const PROJECTS = [
-    {
-        title: "Cleaning Schedule",
-        description: "App web para gestionar el horario de limpieza de un piso compartido. Creado desde cero con HTML, CSS y JavaScript. Inspirado en la interfaz y temáticas de shadcn/ui.",
-        link: "https://cleaning-schedule.vercel.app",
-        github: "https://github.com/picuu/cleaning-schedule",
-        image: "/projects/cleaning-schedule.webp",
-        tags: ["HTML", "CSS", "JavaScript"]
-    },
-    {
-        title: "ITBFlix",
-        description: "Plataforma web inspirada en Netflix. Proyecto para el módulo de Lenguajes de Marcas del CFGS de Desarrollo de Aplicaciones Web. Creado con HTML y CSS.",
-        link: "https://itbflix.vercel.app",
-        github: "https://github.com/picuu/itbflix",
-        image: "/projects/itbflix.webp",
-        tags: ["HTML", "CSS"]
-    }
-]
+import { PROJECTS } from "@/data/Projects.js"
 ---
 <div class="repositories-container">
     {
-        PROJECTS.map(({ title, description, link, github, image, tags}) => (
-            <article class="repository">
+        PROJECTS.map(({ title, description, link, github, image, tags}, index) => (
+            <article class="repository" id={`repo${index+1}`}>
                 {
                     image &&
                     <a href={link} target="_blank" rel="noopener">
-                        <img loading="lazy" src={image} alt={`Captura de pantalla del proyecto ${title}`} width="420" />
+                        <img loading="lazy" src={image} alt={`Captura de pantalla del proyecto ${title}`} />
                     </a>
                 }
 
@@ -51,6 +32,13 @@ const PROJECTS = [
                         ))
                     }
                 </ul>
+
+                {
+                    !image &&
+                    <SocialButton href={link} classList="absolute-icon">
+                        <WorldIcon size="19" />
+                    </SocialButton>
+                }
             </article>
         ))
     }
@@ -60,10 +48,32 @@ const PROJECTS = [
     .repositories-container {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        grid-template-rows: [top] 1fr [middle-top] 1fr [middle-bottom] 1fr [bottom];
         gap: 2rem;
     }
 
+    #repo1 {
+        grid-row-start: top;
+        grid-row-end: middle-top;
+    }
+
+    #repo2 {
+        grid-row-start: top;
+        grid-row-end: middle-bottom;
+    }
+
+    #repo3 {
+        grid-row-start: middle-top;
+        grid-row-end: bottom;
+    }
+
+    #repo4 {
+        grid-row-start: middle-bottom;
+        grid-row-end: bottom;
+    }
+
     .repository {
+        position: relative;
         display: flex;
         flex-direction: column;
         gap: .5rem;
@@ -82,13 +92,18 @@ const PROJECTS = [
     }
 
     .repository > a img {
-        width: 420px;
         aspect-ratio: 16 / 9;
         transition: transform 150ms ease-in-out;
     }
 
     .repository > a img:hover {
         transform: scale(1.04);
+    }
+
+    :global(.absolute-icon) {
+        position: absolute;
+        bottom: 1rem;
+        right: 1rem;
     }
 
     .title {
@@ -144,6 +159,8 @@ const PROJECTS = [
         --clr-tag-next: #ddd;
         --clr-tag-tailwind: #0bacc9;
         --clr-tag-react: #56d1f3;
+        --clr-tag-astro: #d83333;
+        --clr-tag-typescript: #3178c6;
     }
 
     .tag[data-tag-name="HTML"]::before {
@@ -168,6 +185,14 @@ const PROJECTS = [
 
     .tag[data-tag-name="React"]::before {
         background-color: var(--clr-tag-react);
+    }
+
+    .tag[data-tag-name="Astro"]::before {
+        background-color: var(--clr-tag-astro);
+    }
+
+    .tag[data-tag-name="TypeScript"]::before {
+        background-color: var(--clr-tag-typescript);
     }
 
     @media (width < 584px) {
