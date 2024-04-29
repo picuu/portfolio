@@ -109,6 +109,13 @@ import SendIcon from "@/icons/Send.astro"
         -webkit-text-fill-color: transparent;
         -webkit-background-clip: text;
         font-weight: 800;
+        animation: rbg-loop 8s infinite linear;
+    }
+
+    @keyframes rbg-loop {
+        to {
+            filter: hue-rotate(360deg);
+        }
     }
 
     .intro-info-description {
