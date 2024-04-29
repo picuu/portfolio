@@ -1,7 +1,4 @@
----
-import TimelineItem from "@/components/TimelineItem.astro"
-
-const EXPERIENCE = [
+export const EXPERIENCE = [
     {
         date: "Actualmente...",
         title: "CFGS en Desarrollo de Aplicaciones Web",
@@ -24,34 +21,3 @@ const EXPERIENCE = [
         link: "https://redols.caib.es/c07008387/cfgm-informatica-i-comunicacions/"
     }
 ]
----
-
-<ol>
-
-    {
-        EXPERIENCE.map(experience => (
-            <TimelineItem {...experience} />
-        ))
-    }
-</ol>
-
-<style>
-    ol {
-        position: relative;
-        padding-block: .25rem;
-        margin-left: .96rem;
-        list-style: none;
-    }
-
-    ol::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 3px;
-        height: 100%;
-        background-color: var(--clr-border);
-        border-radius: 100vw;
-    }
-</style>
-

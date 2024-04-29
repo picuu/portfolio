@@ -1,0 +1,34 @@
+---
+import TimelineItem from "@/components/TimelineItem.astro"
+
+import { EXPERIENCE } from "@/data/Experience.js"
+---
+
+<ol>
+    {
+        EXPERIENCE.map(experience => (
+            <TimelineItem {...experience} />
+        ))
+    }
+</ol>
+
+<style>
+    ol {
+        position: relative;
+        padding-block: .25rem;
+        margin-left: .96rem;
+        list-style: none;
+    }
+
+    ol::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 3px;
+        height: 100%;
+        background-color: var(--clr-border);
+        border-radius: 100vw;
+    }
+</style>
+

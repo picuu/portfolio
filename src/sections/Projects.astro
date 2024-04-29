@@ -1,48 +1,101 @@
 ---
+import Section from "@/layouts/Section.astro"
+import SectionTitle from "@/components/SectionTitle.astro"
 import SocialButton from "@/components/SocialButton.astro"
+
 import WorldIcon from "@/icons/World.astro"
 import BookIcon from "@/icons/Book.astro"
+import AppsIcon from "@/icons/Apps.astro"
+
 import { PROJECTS } from "@/data/Projects.js"
 ---
-<div class="repositories-container">
-    {
-        PROJECTS.map(({ title, description, link, github, image, tags}, index) => (
-            <article class="repository" id={`repo${index+1}`}>
-                {
-                    image &&
-                    <a href={link} target="_blank" rel="noopener">
-                        <img loading="lazy" src={image} alt={`Captura de pantalla del proyecto ${title}`} />
-                    </a>
-                }
 
-                <h3 class="title">
-                    <BookIcon size="18" />
-                    <a href={github} target="_blank" rel="noopener">
-                        {title.toLowerCase().replace(/\s/g, "-")}
-                    </a>
-                </h3>
-                <p class="description">{description}</p>
-                <ul class="tag-list">
-                    {tags.map(tag => (
-                        <li>
-                            <span class="tag" data-tag-name={tag}>
-                                {tag}
-                            </span>
-                        </li>
-                        ))
+<Section id="proyectos" class="projects">
+    <SectionTitle>
+        <AppsIcon size="34" />
+        Proyectos
+    </SectionTitle>
+
+    <div class="repositories-container">
+        {
+            PROJECTS.map(({ title, description, link, github, image, tags}, index) => (
+                <article class="repository" id={`repo${index+1}`}>
+                    {
+                        image &&
+                        <a href={link} target="_blank" rel="noopener">
+                            <img loading="lazy" src={image} alt={`Captura de pantalla del proyecto ${title}`} />
+                        </a>
                     }
-                </ul>
+    
+                    <h3 class="title">
+                        <BookIcon size="18" />
+                        <a href={github} target="_blank" rel="noopener">
+                            {title.toLowerCase().replace(/\s/g, "-")}
+                        </a>
+                    </h3>
+                    <p class="description">{description}</p>
+                    <ul class="tag-list">
+                        {tags.map(tag => (
+                            <li>
+                                <span class="tag" data-tag-name={tag}>
+                                    {tag}
+                                </span>
+                            </li>
+                            ))
+                        }
+                    </ul>
+    
+                    {
+                        !image &&
+                        <SocialButton href={link} classList="absolute-icon">
+                            <WorldIcon size="19" />
+                        </SocialButton>
+                    }
+                </article>
+            ))
+        }
+    </div>
 
-                {
-                    !image &&
-                    <SocialButton href={link} classList="absolute-icon">
-                        <WorldIcon size="19" />
-                    </SocialButton>
-                }
-            </article>
-        ))
+</Section>
+
+<style is:global>
+    section.projects {
+        position: relative;
     }
-</div>
+
+    section.projects:after, section.projects:before {
+        position: absolute;
+        inset: 0;
+        margin: auto;
+        width: 412px;
+        height: 250px;
+        filter: blur(4rem);
+        opacity: .4;
+        z-index: -99;
+    }
+
+    section.projects:before {
+        content: url("/images/blue-light.svg");
+        transform: translate(-105%, 10%) rotateZ(-45deg);
+        filter: blur(4rem);
+    }
+
+    section.projects:after {
+        content: url("/images/purple-light.svg");
+        transform: translate(100%, -90%);
+    }
+
+    @media (width < 700px) {
+        section.projects:before {
+            transform: translate(-90%, 150%) rotateZ(-45deg);
+        }
+
+        section.projects:after {
+            transform: translate(70%, -150%);
+        }
+    }
+
+</style>
 
 <style>
     .repositories-container {

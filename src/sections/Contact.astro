@@ -1,21 +1,33 @@
 ---
+import Section from "@/layouts/Section.astro"
+import SectionTitle from "@/components/SectionTitle.astro"
+
+import SendIcon from "@/icons/Send.astro"
+
 import { SOCIALS } from '@/data/Socials.js'
 ---
 
+<Section id="contacto">
+    <SectionTitle>
+        <SendIcon size="34" />
+        Contacto
+    </SectionTitle>
 
-<p class="info">Puedes enviarme un correo a través de <strong class="mail" id="mail" data-tooltip-content="Copiar email">contact@carloscapo.com</strong></p>
+    <p class="info">Puedes enviarme un correo a través de <strong class="mail" id="mail" data-tooltip-content="Copiar email">contact@carloscapo.com</strong></p>
+    
+    <div class="socials">
+        {
+            SOCIALS.map((social) => (
+            <a href={social.link} target="_blank" rel="noopener noreferrer">
+                <social.icon size="24" />
+                <span>@{social.username}</span>
+                <p>{social.description}</p>
+            </a>
+            ))
+        }
+    </div>
+</Section>
 
-<div class="socials">
-    {
-        SOCIALS.map((social) => (
-        <a href={social.link} target="_blank" rel="noopener noreferrer">
-            <social.icon size="24" />
-            <span>@{social.username}</span>
-            <p>{social.description}</p>
-        </a>
-        ))
-    }
-</div>
 
 <style>
     .info {
