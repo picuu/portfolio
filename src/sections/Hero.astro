@@ -82,7 +82,7 @@ import MailIcon from "@/icons/Mail.astro"
     }
 
     @media (width < 640px) {
-        section.intro {
+        :global(section.intro) {
             flex-direction: column;
             align-items: center;
             padding-top: 11rem;
@@ -96,7 +96,7 @@ import MailIcon from "@/icons/Mail.astro"
     }
 
     @media (width < 560px) {
-        section.intro {
+        :global(section.intro) {
             padding-top: 5.5rem;
         }
 

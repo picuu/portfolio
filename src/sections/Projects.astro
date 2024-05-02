@@ -105,6 +105,13 @@ import { PROJECTS } from "@/data/Projects.js"
         gap: 2rem;
     }
 
+    @media (width < 700px) {
+        .repositories-container {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
     #repo1 {
         grid-row-start: top;
         grid-row-end: middle-top;
