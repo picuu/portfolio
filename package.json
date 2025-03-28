@@ -15,5 +15,6 @@
     "@vercel/speed-insights": "^1.0.10",
     "astro": "^4.4.0",
     "typescript": "^5.3.3"
-  }
+  },
+  "packageManager": "pnpm@10.7.0"
 }
