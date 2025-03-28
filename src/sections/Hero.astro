@@ -1,10 +1,13 @@
 ---
 import Section from "@/layouts/Section.astro"
 import SocialButton from "@/components/SocialButton.astro"
+import { getCurrentAge } from '@/utils'
 
 import GitHubIcon from "@/icons/GitHub.astro"
 import LinkedInIcon from "@/icons/LinkedIn.astro"
 import MailIcon from "@/icons/Mail.astro"
+
+const age = getCurrentAge()
 ---
 
 <Section class="intro">
@@ -12,7 +15,7 @@ import MailIcon from "@/icons/Mail.astro"
     <div class="intro-info">
         <h1>Carlos Capó</h1>
         <p class="intro-info-description">
-            Desarrollador web de 18 años en Barcelona autodidacta y proactivo, motivado a aprender y progresar.
+            Desarrollador web de {age} años en Barcelona autodidacta y proactivo, motivado a aprender y progresar.
         </p>
         <div class="intro-socials">
             <SocialButton href="https://github.com/picuu">

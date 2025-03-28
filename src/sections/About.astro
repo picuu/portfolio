@@ -2,9 +2,12 @@
 import Section from "@/layouts/Section.astro"
 import SectionTitle from "@/components/SectionTitle.astro"
 import SocialButton from "@/components/SocialButton.astro"
+import { getCurrentAge } from '@/utils'
 
 import UserIcon from "@/icons/User.astro"
 import DownloadFileIcon from "@/icons/DownloadFile.astro"
+
+const age = getCurrentAge()
 ---
 
 <Section id="sobre-mi" class="about">
@@ -16,7 +19,7 @@ import DownloadFileIcon from "@/icons/DownloadFile.astro"
     <div class="container">
         <div class="about-info">
             <p>
-                Me llamo Carlos Capó, aunque mis amigos me apodan como Picu, tengo 18 años y soy de Menorca. <strong>Estoy cursando mis estudios de Grado Superior en Barcelona</strong>.
+                Me llamo Carlos Capó, aunque mis amigos me apodan como Picu, tengo {age} años y soy de Menorca. <strong>Estoy cursando mis estudios de Grado Superior en Barcelona</strong>.
             </p>
         
             <p>
