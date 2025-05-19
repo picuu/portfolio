@@ -1,6 +1,7 @@
 ---
 import Section from '@/layouts/Section.astro'
 import SocialButton from '@/components/SocialButton.astro'
+import OutdatedToast from '@/components/OutdatedToast.astro'
 import { getCurrentAge } from '@/utils'
 
 import GitHubIcon from '@/icons/GitHub.astro'
@@ -33,6 +34,7 @@ const age = getCurrentAge()
         contact@carloscapo.com
       </SocialButton>
     </div>
+    <OutdatedToast />
   </div>
 </Section>
 
